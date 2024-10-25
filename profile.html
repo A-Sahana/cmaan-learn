@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo1.png" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="courses.html" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="fullstack.html">Full Stack Development</a>
+                            <a href="backend.html">Backend Development</a>
+                            <a href="graphics.html">Graphics Designing</a>
+                            <a href="android.html">Android Development</a>
+                            <a href="automation.html">Automation Testing</a>
+                            <a href="ios.html">IOS Development</a>
+                            <a href="cloud.html">Cloud Engineer</a>
+                            <a href="sales.html">Sales & Marketing</a>
+                            <a href="telecalling.html">Tele-Calling</a>
+                            <a href="hr.html">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                
+                    <li><a href="tutor.html">Become Tutor</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+            
+            
+            <div class="login">
+                <a href="login.html">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <h2>Complete Your Profile</h2>
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="about">About Yourself:</label>
+                <textarea id="about" name="about" placeholder="Tell us something about yourself"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="job-role">Job Role You Are Interested In:</label>
+                <select id="job-role" name="job-role">
+                    <option value="full-stack-developer">Full Stack Developer</option>
+                    <option value="backend-developer">Backend Developer</option>
+                    <option value="frontend-developer">Frontend Developer</option>
+                    <option value="graphic-designer">Graphic Designer</option>
+                    <option value="android-developer">Android Developer</option>
+                    <option value="ios-developer">iOS Developer</option>
+                    <option value="cloud-engineer">Cloud Engineer</option>
+                    <option value="automation-tester">Automation Tester</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cv">Upload CV:</label>
+                <input type="file" id="cv" name="cv">
+            </div>
+
+            <div class="form-group education-section">
+                <h3>Education Details:</h3>
+
+                <div class="education-block">
+                    <label for="degree">Degree:</label>
+                    <input type="text" id="degree" name="degree" placeholder="e.g., Bachelor of Technology">
+
+                    <label for="institute">Institute:</label>
+                    <input type="text" id="institute" name="institute" placeholder="e.g., ABC University">
+
+                    <label for="year">Year of Completion:</label>
+                    <input type="number" id="year" name="year" placeholder="e.g., 2022">
+                </div>
+
+                
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="City, Country">
+            </div>
+
+            <div class="form-group">
+                <label for="linkedin">LinkedIn Profile URL:</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/yourprofile">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </section>
+
+</body>
+</html>
