@@ -1,387 +1,180 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Animated Gradient Background */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: rgb(255, 255, 255);
-}
-
-header {
-    background-color: #ffffffcf;
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    top: 0;
-    z-index: 1000;
-}
-
-.container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0051ff, #009688, #0047ab);
+    background-size: 300% 300%;
+    animation: gradientBackground 10s ease infinite;
+    color: #333;
 }
 
-.logo {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.logo img {
-    width: 150px;
-    height: 40px;
+.profile-completion-container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-.logo-text {
-    font-size: 22px;
-    font-weight: 550;
-    margin-left: 0;
-    margin-top: 5px;
-    color: #262666;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding-left: 32px;
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 25px;
 }
 
+.profile-header h1 {
+    font-size: 2.2em;
+    color: #0051ff;
+}
 
-.main-nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
+/* Profile Form Layout */
+.profile-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-.main-nav ul li a {
-    text-decoration: none;
-    color: #333; 
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 5px;
-}
-
-.main-nav ul li a:hover {
-    background-color: rgba(0, 151, 178, 0.1);
-    color: #0097b2;
-}
-
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.search-bar {
-    padding: 10px 40px 10px 15px;
-    border: 1px solid #ccc;
+/* Progress Bar Container */
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
     border-radius: 25px;
-    font-size: 14px;
-    outline: none;
-    width: 250px;
-    background-color: #f9f9f9;
-    transition: width 0.3s ease;
+    overflow: hidden;
+    margin: 15px auto;
+    height: 25px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.search-bar:focus {
-    width: 300px;
-    border-color: #0097b2;
+/* Enhanced Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
 }
 
-.search-icon {
-    position: absolute;
-    right: 15px;
-    color: #333;
-    cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-.search-container:hover .search-icon {
-    color: #0097b2;
-}
-
-.login {
+#progress-bar-fill {
     display: flex;
     align-items: center;
-}
-
-.login-btn {
-    background-color: #0097b2;
+    justify-content: right;
+    padding-right: 10px;
+    width: 0;
+    height: 100%;
+    font-weight: bold;
     color: #fff;
-    border: none;
-    padding: 10px 25px;
+    background: linear-gradient(90deg, #ff6f91, #ff9671);
+    background-size: 200% 200%;
+    animation: gradient-animation 3s ease infinite;
     border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
+    transition: width 0.4s ease;
+    box-shadow: 0px 4px 8px rgba(255, 111, 145, 0.5);
 }
 
-.login-btn:hover {
-    background-color: #006b82;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-.dropdown-content {
-    display: none;
+/* Progress Bar Text Overlay */
+.progress-bar-text {
     position: absolute;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    padding: 10px 0;
-    border-radius: 4px;
-    flex-direction: column;
-}
-
-
-header {
-    position: relative;
-    z-index: 10;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 16px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.dropbtn {
-    background-color: transparent;
-    color: black;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.tutor {
-    background: url(images/tutor.png) no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 800px;
-    background-size: cover;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-    position: relative;
-}
-
-.tutor .content {
-    position: absolute;
+    right: 5px;
     top: 50%;
-    left: 4%;
     transform: translateY(-50%);
-    padding: 10px;
-}
-
-.tutor h2 {
-    font-size: 2rem;
-    color: #1e295d;
-    text-align: left;
-}
-
-.tutor p {
-    font-size: 2.5rem;
-    color: #2a366a;
-    font-weight: 800;
-}
-
-.tutor .btn {
-    padding: 20px 40px;
-    background-color: #0097b2;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 25px;
-}
-
-.tutor .btn:hover {
-    background-color: #006b82;
-}
-
-/* Teach Create Earn Section */
-.hero-section {
-    background: linear-gradient(90deg, #073864, #0097b2); /* Gradient background */
-    padding: 40px 0; /* Adjust padding for spacing */
-    text-align: center;
-    color: white;
-}
-
-.hero-section h1 {
-    font-size: 2.8em; /* Adjust the font size as per your preference */
+    color: #fff;
     font-weight: bold;
-    margin: 0;
-    line-height: 1.2;
-    letter-spacing: 2px;
-    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    padding: 2px 6px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Content section after the hero section */
-.content-section {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-    background-color: #f5f5f5;
+/* Gradient Animation */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.text-content {
-    width: 60%;
-}
-
-.text-content h3 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-.form-content {
-    width: 35%;
-}
-
-.form-box {
-    background-color: #fff;
+/* Form Sections */
+.form-section {
+    background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-box h3 {
-    margin-bottom: 20px;
-    font-size: 2em;
-}
-
-.form-box input,
-.form-box select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #0097b2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #006b82;
-}
-
-
-.tutor {
-    padding: 40px;
-    text-align: center;
-    background-color: #fff;
-}
-
-
-.profile-section {
-    padding: 40px;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 }
 
-.profile-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
+.form-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-.form-group {
-    margin-bottom: 20px;
+.form-section h2 {
+    font-size: 1.3em;
+    color: #0051ff;
+    margin-bottom: 10px;
 }
 
-.form-group label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
+/* Input Fields */
+input[type="text"], input[type="url"], input[type="file"], select, textarea {
     padding: 10px;
+    font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #0051ff;
+    box-shadow: 0 0 5px rgba(78, 84, 200, 0.3);
+    outline: none;
 }
 
 textarea {
     resize: vertical;
-    height: 100px;
 }
 
-.education-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+/* Target the specific container around the button */
+.button-container, .profile-form > div:last-child {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-.education-section h3 {
-    margin-bottom: 10px;
-}
-
-.education-block {
-    margin-bottom: 10px;
-}
-
-#add-education {
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 15px;
+/* Button Styles */
+button[type="submit"] {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    color: #fff;
+    background: linear-gradient(to right, #0051ff, #006b82);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    font-size: 18px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.submit-btn:hover {
-    background-color: #218838;
+/* Remove additional shadows or styling on hover */
+button[type="submit"]:hover {
+    background: linear-gradient(to right, #0049d0, #005b6e);
+    transform: translateY(-2px);
+    box-shadow: none;
 }
+
