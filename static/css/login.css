@@ -15,8 +15,8 @@ body::before {
     background: url('/static/images/login.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    filter: blur(4px); /* Adjust the blur level as needed */
-    z-index: 0; /* Ensure it stays behind other content */
+    filter: blur(4px);
+    z-index: 0;
 }
 
 .container {
@@ -25,8 +25,8 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Ensure it sits above the blurred background */
-    z-index: 1; /* Bring the container to the front */
+    position: relative;
+    z-index: 1;
 }
 
 .form-box {
@@ -34,13 +34,12 @@ body::before {
     height: 500px;
     position: relative;
     margin: 6% auto;
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent for effect */
+    background: rgba(255, 255, 255, 0.9);
     padding: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 }
 
-/* Rest of your CSS code remains unchanged */
 
 .button-box {
     width: 220px;

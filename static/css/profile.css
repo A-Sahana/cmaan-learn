@@ -5,13 +5,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Animated Gradient Background */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0051ff, #009688, #0047ab);
+    background: white;
     background-size: 300% 300%;
     animation: gradientBackground 10s ease infinite;
     color: #333;
@@ -33,7 +32,6 @@ body {
     overflow: hidden;
 }
 
-/* Profile Header */
 .profile-header {
     text-align: center;
     margin-bottom: 25px;
@@ -44,14 +42,12 @@ body {
     color: #0051ff;
 }
 
-/* Profile Form Layout */
 .profile-form {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Progress Bar Container */
 .progress-bar-container {
     width: 100%;
     background-color: #e0e0e0;
@@ -62,7 +58,6 @@ body {
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Enhanced Progress Bar */
 .progress-bar {
     width: 100%;
     height: 100%;
@@ -88,7 +83,6 @@ body {
     box-shadow: 0px 4px 8px rgba(255, 111, 145, 0.5);
 }
 
-/* Progress Bar Text Overlay */
 .progress-bar-text {
     position: absolute;
     right: 5px;
@@ -102,14 +96,12 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Gradient Animation */
 @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Form Sections */
 .form-section {
     background-color: #f9f9f9;
     padding: 20px;
@@ -130,7 +122,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Input Fields */
 input[type="text"], input[type="url"], input[type="file"], select, textarea {
     padding: 10px;
     font-size: 1em;
@@ -150,7 +141,6 @@ textarea {
     resize: vertical;
 }
 
-/* Target the specific container around the button */
 .button-container, .profile-form > div:last-child {
     background: transparent !important;
     border: none !important;
@@ -159,7 +149,6 @@ textarea {
     margin: 0 !important;
 }
 
-/* Button Styles */
 button[type="submit"] {
     padding: 15px 25px;
     font-size: 1.1em;
@@ -171,7 +160,6 @@ button[type="submit"] {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Remove additional shadows or styling on hover */
 button[type="submit"]:hover {
     background: linear-gradient(to right, #0049d0, #005b6e);
     transform: translateY(-2px);
