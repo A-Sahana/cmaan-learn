@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cmaan.learn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo1.png" alt="Cmaan.learn" />
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
                 <span class="logo-text">Learn</span>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li class="dropdown">
-                        <a href="courses.html" class="dropbtn">All Courses</a>
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
                         <div class="dropdown-content">
-                            <a href="fullstack.html">Full Stack Development</a>
-                            <a href="backend.html">Backend Development</a>
-                            <a href="graphics.html">Graphics Designing</a>
-                            <a href="android.html">Android Development</a>
-                            <a href="automation.html">Automation Testing</a>
-                            <a href="ios.html">IOS Development</a>
-                            <a href="cloud.html">Cloud Engineer</a>
-                            <a href="sales.html">Sales & Marketing</a>
-                            <a href="telecalling.html">Tele-Calling</a>
-                            <a href="hr.html">HR Courses</a>
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
                         </div>
                     </li>
                     
@@ -37,14 +37,13 @@
                         <i class="fas fa-search search-icon"></i>
                     </li>
                 
-                    <li><a href="tutor.html">Become Tutor</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="{{ url_for('tutor') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 </ul>
             </nav>
             
-            
             <div class="login">
-                <a href="login.html">
+                <a href="{{ url_for('login') }}">
                     <button class="login-btn">Log In</button>
                 </a>
             </div>
@@ -54,25 +53,25 @@
     <main>
         <section class="video-container">
             <video class="responsive-video" autoplay loop muted>
-                <source src="images/CMAAN Learn Vdo2.mp4" type="video/mp4">
+                <source src="{{ url_for('static', filename='images/CMAAN Learn Vdo2.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-
+        </section>
     </main>
 
     <section class="button-slider">
         <div class="button-container">
             <div class="button-wrapper">
-                <a href="fullstack.html" class="rect-btn">Full Stack Development</a>
-                <a href="backend.html" class="rect-btn">Backend Development</a>
-                <a href="graphics.html" class="rect-btn">Graphics Designing</a>
-                <a href="android.html" class="rect-btn">Android Development</a>
-                <a href="automation.html" class="rect-btn">Automation Testing</a>
-                <a href="ios.html" class="rect-btn">IOS Development</a>
-                <a href="cloud.html" class="rect-btn">Cloud Engineer</a>
-                <a href="sales.html" class="rect-btn">Sales & Marketing</a>
-                <a href="telecalling.html" class="rect-btn">Tele-Calling</a>
-                <a href="hr.html" class="rect-btn">HR Courses</a>
+                <a href="{{ url_for('fullstack') }}" class="rect-btn">Full Stack Development</a>
+                <a href="{{ url_for('backend') }}" class="rect-btn">Backend Development</a>
+                <a href="{{ url_for('graphics') }}" class="rect-btn">Graphics Designing</a>
+                <a href="{{ url_for('android') }}" class="rect-btn">Android Development</a>
+                <a href="{{ url_for('automation') }}" class="rect-btn">Automation Testing</a>
+                <a href="{{ url_for('ios') }}" class="rect-btn">IOS Development</a>
+                <a href="{{ url_for('cloud') }}" class="rect-btn">Cloud Engineer</a>
+                <a href="{{ url_for('sales') }}" class="rect-btn">Sales & Marketing</a>
+                <a href="{{ url_for('telecalling') }}" class="rect-btn">Tele-Calling</a>
+                <a href="{{ url_for('hr') }}" class="rect-btn">HR Courses</a>
             </div>
         </div>
     </section>
@@ -83,7 +82,7 @@
             <p>Start your skill development journey today.</p>
         </div>
         <div class="banner-button">
-            <a href="courses.html">
+            <a href="{{ url_for('courses') }}">
                 <button>
                     Explore Programs
                     <i class="fas fa-search"></i>
@@ -121,3 +120,6 @@
             </div>
         </div>
     </section>
+
+</body>
+</html>

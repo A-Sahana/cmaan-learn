@@ -5,33 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cmaan.learn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 <body>
-
 
     <!-- Header Section -->
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo1.png" alt="Cmaan.learn" />
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
                 <span class="logo-text">Learn</span>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li class="dropdown">
-                        <a href="courses.html" class="dropbtn">All Courses</a>
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
                         <div class="dropdown-content">
-                            <a href="fullstack.html">Full Stack Development</a>
-                            <a href="backend.html">Backend Development</a>
-                            <a href="graphics.html">Graphics Designing</a>
-                            <a href="android.html">Android Development</a>
-                            <a href="automation.html">Automation Testing</a>
-                            <a href="ios.html">IOS Development</a>
-                            <a href="cloud.html">Cloud Engineer</a>
-                            <a href="sales.html">Sales & Marketing</a>
-                            <a href="telecalling.html">Tele-Calling</a>
-                            <a href="hr.html">HR Courses</a>
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
                         </div>
                     </li>
                     
@@ -40,23 +39,23 @@
                         <i class="fas fa-search search-icon"></i>
                     </li>
                     
-                    <li><a href="review.html">Reviews</a></li>
-                    <li><a href="tutor.html">Become Tutor</a></li>
+                    <li><a href="{{ url_for('review') }}">Reviews</a></li>
+                    <li><a href="{{ url_for('tutor') }}">Become Tutor</a></li>
                 </ul>
             </nav>
             
             <div class="login">
-                <a href="login.html">
+                <a href="{{ url_for('login') }}">
                     <button class="login-btn">Log In</button>
                 </a>
             </div>
         </div>
     </header>
 
-        <!-- Teach Create Earn Section -->
-        <section class="hero-section">
-            <h1>Teach. Create. Earn.</h1>
-        </section>
+    <!-- Teach Create Earn Section -->
+    <section class="hero-section">
+        <h1>Teach. Create. Earn.</h1>
+    </section>
 
     <!-- Content Section Before Image Section -->
     <section class="content-section">
@@ -82,15 +81,15 @@
                         <label for="course">Select Course*</label>
                         <select id="course" name="course">
                             <option value="fullstack">Full Stack Development</option>
-                            <option value="fullstack">Backend Development</option>
-                            <option value="fullstack">Graphics Designing</option>
-                            <option value="fullstack">Android Development</option>
-                            <option value="fullstack">Automation Testing</option>
-                            <option value="fullstack">IOS Development</option>
-                            <option value="fullstack">Cloud Engineer</option>
-                            <option value="fullstack">Sales & Marketing</option>
-                            <option value="fullstack">Tele-Calling</option>
-                            <option value="fullstack">HR Courses</option>
+                            <option value="backend">Backend Development</option>
+                            <option value="graphics">Graphics Designing</option>
+                            <option value="android">Android Development</option>
+                            <option value="automation">Automation Testing</option>
+                            <option value="ios">IOS Development</option>
+                            <option value="cloud">Cloud Engineer</option>
+                            <option value="sales">Sales & Marketing</option>
+                            <option value="telecalling">Tele-Calling</option>
+                            <option value="hr">HR Courses</option>
                         </select>
 
                         <label for="phone">Phone Number*</label>
