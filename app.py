@@ -76,6 +76,11 @@ def hr():
 def tutor():
     return render_template('tutor.html')
 
+@app.route('/bussiness')
+def bussiness():
+    return render_template('bussiness.html')
+
+
 # Route for reviews page
 @app.route('/review')
 def review():
@@ -83,3 +88,5 @@ def review():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+

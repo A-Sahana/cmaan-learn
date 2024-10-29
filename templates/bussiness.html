@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan Learn Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bussiness.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn Business</span>
+            </div>
+            <div class="menu">
+                <a href="#">What we do</a>
+                <a href="#">How we do it</a>
+                <a href="#">Resources</a>
+                <a href="#">Plans</a>
+            </div>
+            <div class="auth">
+                <a href="#" class="login">Login</a>
+                <button class="get-started">Get started</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Step into CMAAN LEARN </h1>
+            <p>Empower yourself with essential skills for the workplace. Learn, practice, and get ready for real-world challenges.</p>
+            <div class="buttons">
+                <button class="compare-plans">Compare plans</button>
+            </div>
+        </section>
+    
+
+        <section class="trusted-brands">
+            <p>Trusted by </p>
+            <div class="brands">
+                <img src="{{ url_for('static', filename='images/logo3.jpg') }}" alt="Your Brand">
+            </div>
+        </section>
+        
+        <section class="upskill-info">
+            <h2>Equip candidates with the skills needed to succeed</h2>
+            <p>Empower candidates through learning and assessment to ensure they’re ready for their career journey.</p>
+        
+            <div class="info-cards">
+                <div class="info-card">
+                    <img src="{{ url_for('static', filename='images/upskill1.png') }}" alt="Skill-building illustration">
+                    <div class="info-content">
+                        <h3>Engage, develop, and assess potential candidates</h3>
+                        <ul>
+                            <li>Encourage a learning mindset among candidates</li>
+                            <li>Support candidates’ growth through targeted learning modules</li>
+                            <li>Invest in skills development to bridge career gaps</li>
+                        </ul>
+                        <a href="#">Learn more ></a>
+                    </div>
+                </div>
+        
+                <div class="info-card">
+                    <img src="{{ url_for('static', filename='images/upskill2.png') }}" alt="Future-ready illustration">
+                    <div class="info-content">
+                        <h3>Prepare candidates for future opportunities</h3>
+                        <ul>
+                            <li>Guide candidates through skill-specific training videos</li>
+                            <li>Ensure they meet current industry demands through assessments</li>
+                            <li>Help them gain confidence in their newly acquired skills</li>
+                        </ul>
+                        <a href="#">Learn more ></a>
+                    </div>
+                </div>
+        
+                <div class="info-card">
+                    <img src="{{ url_for('static', filename='images/upskill3.png') }}" alt="Tech skills illustration">
+                    <div class="info-content">
+                        <h3>Enable continuous improvement in technical skills</h3>
+                        <ul>
+                            <li>Keep candidates’ technical skills updated with latest trends</li>
+                            <li>Fill knowledge gaps through guided quizzes and projects</li>
+                        </ul>
+                        <a href="#">Learn more ></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <ul>
+                <li><strong>cmaanlearn.com</strong></li>
+                    <li>About Us</li>
+                    <li>Events</li>
+                    <li>Partners & Integrations</li>
+                    <li>Partner with cmaanlearn</li>
+                    <li>Take a product tour</li>
+                    <li>News</li>
+                    <li>Investor Relations</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <ul>
+                <li><strong>Contact Us</strong></li>
+                    <li>Help</li>
+                    <li>Terms & conditions</li>
+                    <li>Privacy policy</li>
+                    <li>Cookie settings</li>
+                    <li>Sitemap</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <p>Follow us</p>
+            <div class="social-icons">
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-x-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 cmaanlearn, Inc.</p>
+        <p>cmaanlearn — The Power for Success</p>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/bussiness.js') }}"></script>
+</html>
