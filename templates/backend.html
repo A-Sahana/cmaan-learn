@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/backend.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                
+                    <li><a href="{{ url_for('tutor') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="course-banner">
+        <div class="course-info">
+            <h1 class="course-title">The Complete Backend Developer Course</h1>
+            <p class="course-description">Become a Backend Developer with just ONE course. Learn Python,DJango,Flask Framework.</p>
+            <div class="rating-section">
+                <span class="badge">Bestseller</span>
+                <span class="rating">4.7 ⭐</span>
+            </div>
+        </div>
+    
+        <div class="course-enroll">
+            <div class="course-preview">
+                <img src="{{ url_for('static', filename='images/backend.jpg') }}" alt="Course Preview" class="preview-image">
+            </div>
+            <div class="pricing">
+                <span class="original-price">₹3,099</span>
+                <span class="discount-price">₹449</span>
+                
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="course-features">
+        <div class="features-section">
+            <h2>What you'll learn</h2>
+            <div class="features-list">
+                <div class="feature-item">✔ Build 10 web development projects based on backend development, ready to apply for junior developer jobs.</div>
+                <div class="feature-item">✔ Learn the latest technologies, including Node,React with Python,DJango and Flask Framework for Web Development.</div>
+                <div class="feature-item">✔ After the course, you will be able to build ANY website you want.</div>
+                <div class="feature-item">✔ Build fully-fledged websites and web apps for your startup or business using backend development.</div>
+                <div class="feature-item">✔ Work as a freelance backend developer.</div>
+                <div class="feature-item">✔ Master backend development with Python,DJango and Flask Framework .</div>
+                <div class="feature-item">✔ Learn professional developer best practices.</div>
+            </div>
+        </div>
+    
+        <div class="topics-section">
+            <h2>Explore related topics</h2>
+            <div class="topics">
+                <span class="topic-badge">Backend Development</span>
+                <span class="topic-badge">Development</span>
+            </div>
+        </div>
+    
+        <div class="includes-section">
+            <h2>This course includes:</h2>
+            <div class="includes-list">
+                <div class="include-item">🎥 61 hours on-demand video</div>
+                <div class="include-item">💻 7 coding exercises</div>
+                <div class="include-item">📄 65 articles</div>
+                <div class="include-item">📥 194 downloadable resources</div>
+                <div class="include-item">🏆 Certificate of completion</div>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+    </html>

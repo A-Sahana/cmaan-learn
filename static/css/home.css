@@ -5,7 +5,9 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     background-color: rgb(255, 255, 255);
 }
 
@@ -355,7 +357,7 @@ header {
     color: #fff;
     border: none;
     padding: 15px 30px;
-    border-radius: 20px;
+    border-radius: 10px; /* Reduced border radius for a more rectangular look */
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -368,6 +370,7 @@ header {
     background-color: #155c69;
     color: #fff;
 }
+
 
 section.banner-section {
     background-color: #003366;
@@ -559,4 +562,161 @@ section.banner-section:hover {
 
 .enroll-btn:hover {
     background-color: #006b82;
+}
+
+.course-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.course-card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+}
+
+.course-level {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4b53bc;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-content {
+    padding: 20px;
+}
+
+.course-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.course-content p {
+    font-size: 14px;
+    color: #777;
+}
+
+.pricing {
+    margin: 15px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.discount-price {
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.purchase-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.purchase-button:hover {
+    background-color: #0056b3;
+}
+
+.view-all-button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-button:hover {
+    background-color: #e6b800;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 40px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li:first-child {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #9c27b0;
+    font-weight: bold;
+}
+
+.social-icons i {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.awards img {
+    width: 80px;
+    margin: 10px 0;
+}
+
+.language-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 12px;
 }
