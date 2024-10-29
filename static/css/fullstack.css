@@ -84,13 +84,13 @@ header {
     border-radius: 25px;
     font-size: 14px;
     outline: none;
-    width: 250px;
+    width: 300px; /* Increased width */
     background-color: #f9f9f9;
     transition: width 0.3s ease;
 }
 
 .search-bar:focus {
-    width: 300px;
+    width: 350px; /* Adjusted focused width */
     border-color: #0097b2;
 }
 
@@ -106,7 +106,6 @@ header {
 .search-container:hover .search-icon {
     color: #0097b2;
 }
-
 .login {
     display: flex;
     align-items: center;
@@ -478,62 +477,3 @@ header {
     color: #000; /* Changed content color to black */
 }
 
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 40px;
-    font-size: 14px;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li:first-child {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.highlight {
-    color: #9c27b0;
-    font-weight: bold;
-}
-
-.social-icons i {
-    font-size: 20px;
-    color: #fff;
-    margin-right: 10px;
-}
-
-.awards img {
-    width: 80px;
-    margin: 10px 0;
-}
-
-.language-btn {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    font-size: 12px;
-}

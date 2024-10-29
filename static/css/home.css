@@ -84,14 +84,14 @@ header {
     border-radius: 25px;
     font-size: 14px;
     outline: none;
-    width: 250px;
+    width: 300px; /* Increased width */
     background-color: #f9f9f9;
     transition: width 0.3s ease;
 }
 
 .search-bar:focus {
-    width: 300px;
-    border-color: #0097b2;
+    width: 350px; /* Adjusted focused width */
+    border-color: #30659e;
 }
 
 .search-icon {
@@ -113,7 +113,7 @@ header {
 }
 
 .login-btn {
-    background-color: #0097b2;
+    background-color: #30659e;
     color: #fff;
     border: none;
     padding: 10px 25px;
@@ -214,7 +214,7 @@ header {
 
 .tutor .btn {
     padding: 20px 40px;
-    background-color: #0097b2;
+    background-color: #30659e;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -289,7 +289,7 @@ header {
 .submit-btn {
     width: 100%;
     padding: 10px;
-    background-color: #0097b2;
+    background-color: #30659e;
     color: white;
     border: none;
     border-radius: 5px;
@@ -352,11 +352,11 @@ header {
 
 .rect-btn {
     flex-shrink: 0; 
-    background-color: #0097b2;
+    background-color: #30659e;
     color: #fff;
     border: none;
     padding: 15px 30px;
-    border-radius: 10px; /* Reduced border radius for a more rectangular look */
+    border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -372,7 +372,7 @@ header {
 
 
 section.banner-section {
-    background-color: #003366;
+    background-color: #053d75;
     color: #ffffff;
     width: 100%;
     border-radius: 20px;
@@ -391,6 +391,7 @@ section.banner-section {
 .banner-content h1 {
     font-size: 2rem;
     margin-bottom: 10px;
+    color: white;
 }
 
 .banner-content p {
@@ -403,7 +404,7 @@ section.banner-section {
 }
 
 .banner-button button {
-    background-color: #1a73e8;
+    background-color: #30659e;
     color: #ffffff;
     border: none;
     padding: 15px 25px;
@@ -469,13 +470,13 @@ section.banner-section:hover {
 }
 
 .feature i {
-    color: #003366;
+    color: #30659e;
     margin-bottom: 15px;
 }
 
 .feature h3 {
     font-size: 1.3rem;
-    color: #003366;
+    color: #163658;
     margin-bottom: 10px;
 }
 
@@ -546,7 +547,7 @@ section.banner-section:hover {
 .enroll-btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #0097b2;
+    background-color: #30659e;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
@@ -660,65 +661,7 @@ section.banner-section:hover {
     background-color: #e6b800;
 }
 
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 40px;
-    font-size: 14px;
-}
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-section ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li:first-child {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.highlight {
-    color: #9c27b0;
-    font-weight: bold;
-}
-
-.social-icons i {
-    font-size: 20px;
-    color: #fff;
-    margin-right: 10px;
-}
-
-.awards img {
-    width: 80px;
-    margin: 10px 0;
-}
-
-.language-btn {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    font-size: 12px;
-}
 
 .deal{
     background:url('/static/images/banner.jpg') no-repeat;
@@ -728,4 +671,107 @@ footer {
     background-size: cover;
     padding-top: 7rem;
     padding-bottom: 7rem;
+}
+
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color:#0a2541;
+}
+
+p.subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.plan-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+/* Card Styles */
+.plan {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+}
+
+.plan-header {
+    background-color: #30659e;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 20px -20px;
+}
+
+.subtext {
+    color: #777;
+    font-size: 0.9em;
+}
+
+.price {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.price small {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+/* Features List */
+.features {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+    color: #333;
+}
+
+.features li {
+    margin: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.features li::before {
+    content: "✔";
+    color: #4caf50;
+    position: absolute;
+    left: 0;
+    top: 0;
 }

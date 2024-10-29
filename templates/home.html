@@ -14,8 +14,10 @@
                 <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
                 <span class="logo-text">Learn</span>
             </div>
+            
             <nav class="main-nav">
                 <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li class="dropdown">
                         <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
                         <div class="dropdown-content">
@@ -123,45 +125,60 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <ul>
-                    <li><strong>cmaanlearn.com</strong></li>
-                        <li>About Us</li>
-                        <li>Events</li>
-                        <li>Partners & Integrations</li>
-                        <li>Partner with cmaanlearn</li>
-                        <li>Take a product tour</li>
-                        <li>News</li>
-                        <li>Investor Relations</li>
+
+    <div class="section-container">
+        <h1>Accelerate growth – for you or your organization</h1>
+        <p class="subtitle">Reach goals faster with one of our plans or programs.</p>
+        
+        <div class="plan-container">
+            <!-- Personal Plan -->
+            <div class="plan">
+                <div class="plan-header">Personal Plan</div>
+                <p class="subtext">For you (Individual)</p>
+                <p class="price">Starting at ₹850 per month</p>
+                <a href="#" class="button">Start subscription</a>
+                <ul class="features">
+                    <li>Access to top courses</li>
+                    <li>Certification prep</li>
+                    <li>Goal-focused recommendations</li>
+                    <li>AI-powered coding exercises</li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <ul>
-                    <li><strong>Contact Us</strong></li>
-                        <li>Help</li>
-                        <li>Terms & conditions</li>
-                        <li>Privacy policy</li>
-                        <li>Cookie settings</li>
-                        <li>Sitemap</li>
+
+            <!-- Team Plan -->
+            <div class="plan">
+                <div class="plan-header">Team Plan</div>
+                <p class="subtext">For your team (2 to 20 people)</p>
+                <p class="price">₹1,167 a month per user</p>
+                <a href="#" class="button">Start subscription</a>
+                <ul class="features">
+                    <li>Access to top courses</li>
+                    <li>Certification prep</li>
+                    <li>Goal-focused recommendations</li>
+                    <li>Analytics and adoption reports</li>
+                   
                 </ul>
             </div>
-            <div class="footer-section">
-                <p>Follow us</p>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-x-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                </div>
+
+            <!-- Enterprise Plan -->
+            <div class="plan">
+                <div class="plan-header">Enterprise Plan</div>
+                <p class="subtext">For your whole organization (More than 20 people)</p>
+                <p class="price">Contact sales for pricing</p>
+                <a href="#" class="button">Request a demo</a>
+                <ul class="features">
+                    <li>Access to top courses</li>
+                    <li>Certification prep</li>
+                    <li>Goal-focused recommendations</li>
+                    <li>Hands-on tech training with add-on</li>
+                    
+                </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2024 cmaanlearn, Inc.</p>
-            <p>cmaanlearn — The Power for Success</p>
-        </div>
-    </footer>
+    </div>
+
+
+   
 
 </body>
 </html>
