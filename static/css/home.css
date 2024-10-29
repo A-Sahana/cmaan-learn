@@ -5,9 +5,8 @@
 }
 
 body {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+    font-family: "Lato", sans-serif;
+   
     background-color: rgb(255, 255, 255);
 }
 
@@ -719,4 +718,14 @@ footer {
     padding-top: 20px;
     border-top: 1px solid #444;
     font-size: 12px;
+}
+
+.deal{
+    background:url('/static/images/banner.jpg') no-repeat;
+    background-position: center;
+    width:100%;
+    height: 500px;
+    background-size: cover;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
