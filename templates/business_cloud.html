@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fullstack.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choose.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ url_for('bussiness') }}">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                </a>
+                <span class="logo-text">Learn Business</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('business_fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('business_backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="Search" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                </ul>
+            </nav>
+            
+           
+        </div>
+    </header>
+
+    <div class="course-banner">
+        <div class="course-info">
+            <h1 class="course-title">The Complete Cloud Engineer Course</h1>
+            <p class="course-description">Become a Cloud Engineer with just ONE course. Master AWS, Azure, and Google Cloud Platform to build scalable cloud solutions.</p>
+            <div class="rating-section">
+                <span class="badge">Bestseller</span>
+                <span class="rating">4.8 ⭐</span>
+            </div>
+        </div>
+    
+        <div class="course-enroll">
+            <div class="course-preview">
+                <img src="{{ url_for('static', filename='images/cloud.jpg') }}" alt="Course Preview" class="preview-image">
+            </div>
+            <div class="pricing">
+                <span class="original-price">₹5,499</span>
+                <span class="discount-price">₹799</span>
+                
+                <button class="enroll-button">Refer & Earn</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="course-features">
+        <div class="features-section">
+            <h2>What you'll learn</h2>
+            <div class="features-list">
+                <div class="feature-item">✔ Understand the fundamentals of cloud computing and its benefits.</div>
+                <div class="feature-item">✔ Get hands-on experience with AWS, Azure, and Google Cloud Platform.</div>
+                <div class="feature-item">✔ Learn to design and deploy scalable cloud architectures.</div>
+                <div class="feature-item">✔ Master cloud storage solutions and data management.</div>
+                <div class="feature-item">✔ Develop skills for managing cloud security and compliance.</div>
+                <div class="feature-item">✔ Gain knowledge on cloud networking and monitoring tools.</div>
+                <div class="feature-item">✔ Learn to automate cloud infrastructure using Infrastructure as Code (IaC) tools.</div>
+            </div>
+        </div>
+    
+        <div class="topics-section">
+            <h2>Explore related topics</h2>
+            <div class="topics">
+                <span class="topic-badge">Cloud Engineering</span>
+                <span class="topic-badge">AWS</span>
+                <span class="topic-badge">Azure</span>
+                <span class="topic-badge">Google Cloud</span>
+            </div>
+        </div>
+    
+        <div class="includes-section">
+            <h2>This course includes:</h2>
+            <div class="includes-list">
+                <div class="include-item">🎥 70 hours on-demand video</div>
+                <div class="include-item">💻 30 coding exercises</div>
+                <div class="include-item">📄 90 articles</div>
+                <div class="include-item">📥 200 downloadable resources</div>
+                <div class="include-item">🏆 Certificate of completion</div>
+            </div>
+        </div>
+    </div>
+    
+
+   
+    </body>
+    </html>

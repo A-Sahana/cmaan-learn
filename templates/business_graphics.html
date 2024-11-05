@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fullstack.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choose.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ url_for('bussiness') }}">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                </a>
+                <span class="logo-text">Learn Business</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('business_fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('business_backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="Search" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                </ul>
+            </nav>
+            
+           
+        </div>
+    </header>
+
+    <div class="course-banner">
+        <div class="course-info">
+            <h1 class="course-title">The Complete Graphic Design Course</h1>
+            <p class="course-description">Become a Graphic Designer with just ONE course. Master design fundamentals, Adobe Photoshop, Illustrator, InDesign, and more.</p>
+            <div class="rating-section">
+                <span class="badge">Bestseller</span>
+                <span class="rating">4.9 ⭐</span>
+            </div>
+        </div>
+    
+        <div class="course-enroll">
+            <div class="course-preview">
+                <img src="{{ url_for('static', filename='images/graphics.jpg') }}" alt="Course Preview" class="preview-image">
+            </div>
+            <div class="pricing">
+                <span class="original-price">₹4,499</span>
+                <span class="discount-price">₹699</span>
+                
+                <button class="enroll-button">Refer & Earn</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="course-features">
+        <div class="features-section">
+            <h2>What you'll learn</h2>
+            <div class="features-list">
+                <div class="feature-item">✔ Build a strong foundation in the principles of graphic design, including color, typography, and composition.</div>
+                <div class="feature-item">✔ Learn to use Adobe Photoshop, Illustrator, and InDesign for creating professional designs.</div>
+                <div class="feature-item">✔ Design logos, posters, social media graphics, and marketing materials.</div>
+                <div class="feature-item">✔ Work with real-world projects to develop a stunning portfolio.</div>
+                <div class="feature-item">✔ Understand the essentials of branding and how to create cohesive brand identities.</div>
+                <div class="feature-item">✔ Gain skills to work as a freelance or junior graphic designer.</div>
+                <div class="feature-item">✔ Master visual storytelling and create designs that captivate and engage audiences.</div>
+            </div>
+        </div>
+    
+        <div class="topics-section">
+            <h2>Explore related topics</h2>
+            <div class="topics">
+                <span class="topic-badge">Graphic Design</span>
+                <span class="topic-badge">Adobe Photoshop</span>
+                <span class="topic-badge">Illustrator</span>
+                <span class="topic-badge">Branding</span>
+            </div>
+        </div>
+    
+        <div class="includes-section">
+            <h2>This course includes:</h2>
+            <div class="includes-list">
+                <div class="include-item">🎥 50 hours on-demand video</div>
+                <div class="include-item">🖌 15 design projects</div>
+                <div class="include-item">📄 50 articles</div>
+                <div class="include-item">📥 100 downloadable resources</div>
+                <div class="include-item">🏆 Certificate of completion</div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    </body>
+    </html>
+    

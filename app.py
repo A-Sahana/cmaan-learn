@@ -96,6 +96,47 @@ def submit():
 def choose():
     return render_template('choose.html')
 
+@app.route('/business_fullstack')
+def business_fullstack():
+    return render_template('business_fullstack.html')
+
+@app.route('/business_backend')
+def business_backend():
+    return render_template('business_backend.html')
+
+@app.route('/business_graphics')
+def business_graphics():
+    return render_template('business_graphics.html')
+
+@app.route('/business_android')
+def business_android():
+    return render_template('business_android.html')
+
+@app.route('/business_automation')
+def business_automation():
+    return render_template('business_automation.html')
+
+@app.route('/business_ios')
+def business_ios():
+    return render_template('business_ios.html')
+
+@app.route('/business_cloud')
+def business_cloud():
+    return render_template('business_cloud.html')
+
+@app.route('/business_sales')
+def business_sales():
+    return render_template('business_sales.html')
+
+@app.route('/business_telecalling')
+def business_telecalling():
+    return render_template('business_telecalling.html')
+
+@app.route('/business_hr')
+def business_hr():
+    return render_template('business_hr.html')
+
+
 # Route for reviews page
 @app.route('/review')
 def review():
