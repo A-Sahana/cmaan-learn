@@ -17,6 +17,7 @@ body {
     padding: 20px;
     background-color: #fff;
     color: #333;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -67,14 +68,18 @@ body {
     color: #001f6a; 
 }
 
-
 .get-started {
-    background-color: #333;
+    color: white; 
+    background-color: #30659e; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.get-started:hover {
+    background-color: #006b82; 
     color: #fff;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
 }
 
 .hero {
@@ -363,7 +368,7 @@ footer {
 }
 
 .modal-content h2 {
-    color: #001f6a;
+    color: #30659e;
     margin-bottom: 20px;
 }
 
@@ -384,12 +389,17 @@ footer {
 }
 
 .modal-content button {
-    background-color: #0097b2;
+    background-color: #30659e;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content:hover{
+    color: #006b82;
 }
 
 .modal-content .close {
@@ -444,10 +454,11 @@ footer {
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .google-auth-btn:hover {
-    background-color: #001f6a;
+    background-color: #006b82;
 }
 
 .modal-footer-text {
@@ -457,15 +468,9 @@ footer {
     color: #333;
 }
 
-.get-started {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-}
+
+
+
 
 
 

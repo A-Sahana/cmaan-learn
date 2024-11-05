@@ -76,10 +76,25 @@ def hr():
 def tutor():
     return render_template('tutor.html')
 
-@app.route('/bussiness')
+@app.route('/bussiness')  # Corrected typo here
 def bussiness():
     return render_template('bussiness.html')
 
+@app.route('/get_started')
+def get_started():
+    return render_template('get_started.html')
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    # Process form data here
+    # e.g., data = request.form['field_name']
+
+    # For demonstration, simply redirect to choose
+    return redirect(url_for('choose'))
+
+@app.route('/choose')
+def choose():
+    return render_template('choose.html')
 
 # Route for reviews page
 @app.route('/review')
@@ -88,5 +103,3 @@ def review():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-

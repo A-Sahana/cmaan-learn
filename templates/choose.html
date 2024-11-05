@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choose.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ url_for('bussiness') }}">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                </a>
+                <span class="logo-text">Learn Business</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="Search" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                </ul>
+            </nav>
+            
+           
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Step into CMAAN LEARN </h1>
+            <p>Empower yourself with essential skills for the workplace. Learn, practice, and get ready for real-world challenges.</p>
+            <div class="buttons">
+                <button class="compare-plans">Compare plans</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="button-slider">
+        <div class="button-container">
+            <div class="button-wrapper">
+                <a href="{{ url_for('fullstack') }}" class="rect-btn">Full Stack Development</a>
+                <a href="{{ url_for('backend') }}" class="rect-btn">Backend Development</a>
+                <a href="{{ url_for('graphics') }}" class="rect-btn">Graphics Designing</a>
+                <a href="{{ url_for('android') }}" class="rect-btn">Android Development</a>
+                <a href="{{ url_for('automation') }}" class="rect-btn">Automation Testing</a>
+                <a href="{{ url_for('ios') }}" class="rect-btn">IOS Development</a>
+                <a href="{{ url_for('cloud') }}" class="rect-btn">Cloud Engineer</a>
+                <a href="{{ url_for('sales') }}" class="rect-btn">Sales & Marketing</a>
+                <a href="{{ url_for('telecalling') }}" class="rect-btn">Tele-Calling</a>
+                <a href="{{ url_for('hr') }}" class="rect-btn">HR Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="deal" id="deal">
+        <div class="content">
+        </div>
+    </section>
+
+    <section class="course-category">
+        <div class="container">
+            <div class="course-grid">
+                <!-- Course Box 1 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/fullstack.png') }}" alt="Full Stack Development">
+                    <h3 class="course-title">Full Stack Development</h3>
+                    <a href="{{ url_for('fullstack') }}" class="enroll-btn">Refer and Earn</a> 
+                </div>
+                
+                <!-- Course Box 2 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/backend.jpg') }}" alt="Backend Development">
+                    <h3 class="course-title">Backend Development</h3>
+                    <a href="{{ url_for('backend') }}" class="enroll-btn">Refer and Earn</a> 
+                </div>
+                
+                <!-- Course Box 3 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/graphics.jpg') }}" alt="Graphics Designing">
+                    <h3 class="course-title">Graphics <br>Designing</h3>
+                    <a href="{{ url_for('graphics') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+                
+                <!-- Course Box 4 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/android.png') }}" alt="Android Development">
+                    <h3 class="course-title">Android Development</h3>
+                    <a href="{{ url_for('android') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+    
+                <!-- Course Box 5 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/automation.jpeg') }}" alt="Automation Testing">
+                    <h3 class="course-title">Automation Testing</h3>
+                    <a href="{{ url_for('automation') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+                
+                <!-- Course Box 6 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/ios.jpg') }}" alt="IOS Development">
+                    <h3 class="course-title">IOS Development</h3>
+                    <a href="{{ url_for('ios') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+                
+                <!-- Course Box 7 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/cloud.jpg') }}" alt="Cloud Engineer">
+                    <h3 class="course-title">Cloud Engineer</h3>
+                    <a href="{{ url_for('cloud') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+                
+                <!-- Course Box 8 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/sales.jpg') }}" alt="Sales & Marketing">
+                    <h3 class="course-title">Sales & Marketing</h3>
+                    <a href="{{ url_for('sales') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+    
+                <!-- Course Box 9 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/tele.jpg') }}" alt="Tele-Calling">
+                    <h3 class="course-title">Tele-Calling</h3>
+                    <a href="{{ url_for('telecalling') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+    
+                <!-- Course Box 10 -->
+                <div class="course-box">
+                    <img src="{{ url_for('static', filename='images/hr.jpg') }}" alt="HR Programs">
+                    <h3 class="course-title">HR Programs</h3>
+                    <a href="{{ url_for('hr') }}" class="enroll-btn">Refer and Earn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <ul>
+                    <li><strong>cmaanlearn.com</strong></li>
+                    <li>About Us</li>
+                    <li>Events</li>
+                    <li>Partners & Integrations</li>
+                    <li>Partner with cmaanlearn</li>
+                    <li>Take a product tour</li>
+                    <li>News</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <ul>
+                    <li><strong>Contact Us</strong></li>
+                    <li>Help</li>
+                    <li>Terms & conditions</li>
+                    <li>Privacy policy</li>
+                    <li>Cookie settings</li>
+                    <li>Sitemap</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p>Follow us</p>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-x-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 cmaanlearn, Inc.</p>
+            <p>cmaanlearn — The Power for Success</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/choose.js') }}"></script>
+</body>
+</html>
