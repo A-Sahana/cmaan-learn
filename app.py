@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
 app = Flask(__name__)
+
+# MySQL configurations
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'  # Replace with your MySQL username
+app.config['MYSQL_PASSWORD'] = 'Avenger*160'  # Replace with your MySQL password
+app.config['MYSQL_DB'] = 'cmaan_learn'
+
+mysql = MySQL(app)
 
 # Route for the home page
 @app.route('/')
@@ -12,8 +21,7 @@ def home():
 def login():
     if request.method == 'POST':
         # Handle login logic here
-        # e.g., validate user credentials
-        return redirect(url_for('home'))  # Redirect to home after login
+        return redirect(url_for('home'))
     return render_template('login.html')
 
 # Route for the profile completion page
@@ -21,7 +29,6 @@ def login():
 def profile():
     if request.method == 'POST':
         # Handle profile completion logic here
-        # e.g., save user profile information
         return redirect(url_for('home'))
     return render_template('profile.html')
 
@@ -76,7 +83,7 @@ def hr():
 def tutor():
     return render_template('tutor.html')
 
-@app.route('/bussiness')  # Corrected typo here
+@app.route('/bussiness')
 def bussiness():
     return render_template('bussiness.html')
 
@@ -86,16 +93,31 @@ def get_started():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Process form data here
-    # e.g., data = request.form['field_name']
+    if request.method == 'POST':
+        first_name = request.form['firstName']
+        last_name = request.form['lastName']
+        email = request.form['email']
+        phone = request.form['phone']
+        username = request.form['username']
+        course_interest = request.form['courseInterest']
+        referral_goal = int(request.form['referralGoal'])
+        comments = request.form.get('comments', '')
 
-    # For demonstration, simply redirect to choose
+        # Insert form data into MySQL
+        cursor = mysql.connection.cursor()
+        cursor.execute('''
+            INSERT INTO affiliates (first_name, last_name, email, phone, username, course_interest, referral_goal, comments)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        ''', (first_name, last_name, email, phone, username, course_interest, referral_goal, comments))
+        mysql.connection.commit()
+        cursor.close()
     return redirect(url_for('choose'))
 
 @app.route('/choose')
 def choose():
     return render_template('choose.html')
 
+# Routes for business-specific course pages
 @app.route('/business_fullstack')
 def business_fullstack():
     return render_template('business_fullstack.html')
@@ -135,7 +157,6 @@ def business_telecalling():
 @app.route('/business_hr')
 def business_hr():
     return render_template('business_hr.html')
-
 
 # Route for reviews page
 @app.route('/review')
