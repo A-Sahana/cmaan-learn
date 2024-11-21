@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teach.css') }}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                    
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Start Your Tutoring Journey With Us</h1>
+            <div class="buttons">
+                <button class="compare-plans">Become Tutor</button>
+            </div>
+        </section>
+
+        <!-- Teach Create Earn Section -->
+    <section class="hero-section">
+        <h1>Teach. Create. Earn.</h1>
+    </section>
+
+    <!-- Content Section Before Image Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="text-content">
+                <p>Passionate about teaching? Looking for a platform where you can share your knowledge, connect with professionals, and enrich careers, all while earning supplemental income?</p>
+                <h3>You've come to the right place.</h3>
+                <p>At Cmaan.learn, our constant endeavor is to create a network of world-class trainers and industry experts who, in turn, create high-quality courseware that resonates with professionals worldwide, cutting across domains like Full Stack, Cloud Computing, Big Data, and more.</p>
+                <p><strong>Come join us on our journey.</strong></p>
+                <h3>What's in it for me?</h3>
+                <p>The material you produce will be used to train professionals worldwide, increasing visibility and helping you reach a larger audience for your content. Be a part of an elite worldwide training community!</p>
+            </div>
+            <div class="form-content">
+                <div class="form-box">
+                    <h3>Interested in Working With Us?</h3>
+                    <form>
+                        <label for="name">Name*</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="course">Select Course*</label>
+                        <select id="course" name="course">
+                            <option value="fullstack">Full Stack Development</option>
+                            <option value="backend">Backend Development</option>
+                            <option value="graphics">Graphics Designing</option>
+                            <option value="android">Android Development</option>
+                            <option value="automation">Automation Testing</option>
+                            <option value="ios">IOS Development</option>
+                            <option value="cloud">Cloud Engineer</option>
+                            <option value="sales">Sales & Marketing</option>
+                            <option value="telecalling">Tele-Calling</option>
+                            <option value="hr">HR Courses</option>
+                        </select>
+
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="linkedin">LinkedIn URL</label>
+                        <input type="url" id="linkedin" name="linkedin">
+
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,7 +1,10 @@
 // Function to open the modal and generate referral ID
 document.querySelector('.enroll-button').addEventListener('click', function () {
-    const referralId = Math.random().toString(36).substring(2, 10);
-    const referralLink = `http://127.0.0.1:5000/fullstack?ref=${referralId}`;
+    fetch('/generate_referral_link')
+    .then(response => response.json())
+    .then(data => {
+        if (data.referralLink) {
+            const referralLink = data.referralLink;
     
     document.getElementById('generatedLink').textContent = referralLink;
     document.getElementById('referModal').style.display = 'block';
@@ -14,7 +17,14 @@ document.querySelector('.enroll-button').addEventListener('click', function () {
     document.getElementById('twitterShare').href = `https://twitter.com/intent/tweet?text=Check out this course&url=${encodeURIComponent(referralLink)}`;
     document.getElementById('linkedinShare').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(referralLink)}&title=Check out this course`;
     document.getElementById('telegramShare').href = `https://telegram.me/share/url?url=${encodeURIComponent(referralLink)}&text=Check out this course`;
-
+} else {
+    alert('Error generating referral link. Please log in.');
+}
+})
+.catch(err => {
+console.error('Error:', err);
+alert('Error generating referral link. Please try again.');
+});
 });
 
 // Close the modal when clicking on the close button

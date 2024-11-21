@@ -65,6 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const isRegistered = urlParams.get('registered');
+    
+    if (isRegistered) {
+        // Open login modal if registration was successful
+        document.getElementById("loginModal").style.display = "block";
+    }
+
     // Click outside of modal closes it
     window.addEventListener("click", function (event) {
         if (event.target === loginModal) {
