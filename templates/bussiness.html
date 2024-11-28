@@ -95,12 +95,12 @@
             <div class="modal-content">
                 <span class="close" id="closeLogin">&times;</span>
                 <center><h2>Welcome</h2></center>
-                <form id="loginForm">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required><br>
+                <form id="loginForm" action="{{ url_for('bussiness_login') }}" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required><br>
-                    <center><button type="submit">Login</button></center>
+                    <center><button type="submit" class="login-btn">Login</button></center>
                     <!-- Divider with "or" -->
             <div class="divider">
                 <span>or</span>
@@ -118,16 +118,14 @@
             <div class="modal-content">
                 <span class="close" id="closeRegister">&times;</span>
                 <center><h2>Nice to See You</h2></center>
-                <form id="registerForm">
-                    <label for="name">Name:</label>
+                <form id="registerForm" action="{{ url_for('bussiness_register') }}" method="POST">
+                    <label for="name">Username:</label>
                     <input type="text" id="name" name="name" required><br>
-                    <label for="phone">Phone No:</label>
-                    <input type="text" id="phone" name="phone" required><br>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required><br>
-                    <label for="otp">OTP:</label>
-                    <input type="text" id="otp" name="otp" required><br>
-                    <center><button type="button" onclick="verifyOTP()">Verify OTP</button></center>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br>
+                    <center><button type="submit" class="register-btn">Register</button></center>
                     <!-- Divider with "or" -->
             <div class="divider">
                 <span>or</span>
@@ -184,5 +182,4 @@
     <script src="{{ url_for('static', filename='js/bussiness.js') }}"></script>
     
 </body>
-</html>
-
+</html> 

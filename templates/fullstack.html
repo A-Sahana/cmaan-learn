@@ -39,7 +39,7 @@
                     </li>
                 
                     <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
-                    <li><a href="{{ url_for('tutor') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
                     <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 </ul>
             </nav>
@@ -70,7 +70,10 @@
                 <span class="original-price">₹3,999</span>
                 <span class="discount-price">₹599</span>
                 
-                <button class="enroll-button">Enroll Now</button>
+                <form action="{{ url_for('enroll', ref=referral_id, user=referrer_username) }}" method="post">
+                    <input type="hidden" name="email" value="{{ user_email }}"> <!-- Replace with actual email -->
+                    <button type="submit" class="enroll-button">Enroll Now</button>
+                </form>                       
             </div>
         </div>
     </div>

@@ -16,15 +16,15 @@
                 </a>
                 <span class="logo-text">Learn Business</span>
             </div>
-            <div class="menu">
+            {# <div class="menu">
                 <a href="#">What we do</a>
                 <a href="#">How we do it</a>
                 <a href="#">Resources</a>
                 <a href="#">Plans</a>
             </div>
             <div class="auth">
-                <a href="#" class="login" id="loginBtn">Login</a>
-                <a href="{{ url_for('get_started') }}" class="get-started" style="color: #fff;">Start</a>
+                <a href="#" class="login" id="loginBtn">Login</a> #}
+                <a href="{{ url_for('get_started') }}" class="get-started" style="color: #fff;">Start Your Earnings</a>
             </div>
         </div>
     </header>
@@ -82,15 +82,15 @@
         </section>
         
         
-        
+      
         <!-- Login Modal -->
         <div id="loginModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeLogin">&times;</span>
                 <center><h2>Welcome</h2></center>
-                <form id="loginForm">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required><br>
+                <form id="loginForm" action="/login" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required><br>
                     <center><button type="submit">Login</button></center>
@@ -111,16 +111,15 @@
             <div class="modal-content">
                 <span class="close" id="closeRegister">&times;</span>
                 <center><h2>Nice to See You</h2></center>
-                <form id="registerForm">
-                    <label for="name">Name:</label>
+                <form id="registerForm" action="/register" method="POST">
+                    <label for="name">Username:</label>
                     <input type="text" id="name" name="name" required><br>
-                    <label for="phone">Phone No:</label>
-                    <input type="text" id="phone" name="phone" required><br>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required><br>
-                    <label for="otp">OTP:</label>
-                    <input type="text" id="otp" name="otp" required><br>
-                    <center><button type="button" onclick="verifyOTP()">Verify OTP</button></center>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br>
+                    
+                    <center><button type="button" onclick="verifyOTP()">Register</button></center>
                     <!-- Divider with "or" -->
             <div class="divider">
                 <span>or</span>
@@ -138,7 +137,7 @@
                 <img src="{{ url_for('static', filename='images/logo3.jpg') }}" alt="Your Brand">
             </div>
         </section>
-    </main>
+    </main> 
 
     <footer>
         <div class="footer-container">

@@ -1,7 +1,34 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect, url_for
+=======
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
+import mysql.connector
+import MySQLdb.cursors
+import secrets
+
+>>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
 
 app = Flask(__name__)
+app.secret_key = secrets.token_hex(16)
+app.secret_key = "34de185b4e78f74a43b8ce44c51f3d72"
+app.debug = True 
 
+<<<<<<< HEAD
+=======
+# Configure MySQL database
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'Avenger*160'
+app.config['MYSQL_DB'] = 'cmaan_learn'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+# Initialize MySQL
+mysql = MySQL(app)
+
+
+>>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
 # Route for the home page
 @app.route('/')
 def home():
@@ -76,7 +103,15 @@ def hr():
 def tutor():
     return render_template('tutor.html')
 
+<<<<<<< HEAD
 @app.route('/bussiness')  # Corrected typo here
+=======
+@app.route('/teach')
+def teach():
+    return render_template('teach.html')
+
+@app.route('/bussiness')
+>>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
 def bussiness():
     return render_template('bussiness.html')
 
@@ -91,6 +126,124 @@ def submit():
 
     # For demonstration, simply redirect to choose
     return redirect(url_for('choose'))
+
+@app.route('/bussiness_register', methods=['POST'])
+def bussiness_register():
+    cursor = mysql.connection.cursor()
+    username = request.form['name']
+    email = request.form['email']
+    password = request.form['password']
+    
+    # Check if user already exists
+    cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
+    existing_user = cursor.fetchone()
+    
+    if existing_user:
+        flash("User already exists. Please log in.")
+        return redirect(url_for('bussiness_login'))
+    
+    # Hash password for security
+    hashed_password = generate_password_hash(password)
+    
+    # Insert new user into database
+    cursor.execute(
+        "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",
+        (username, email, hashed_password)
+    )
+    mysql.connection.commit()
+    
+    flash("Registration successful. Please log in.")
+    cursor.close() 
+    return redirect(url_for('bussiness_login'))
+
+@app.route('/bussiness_login', methods=['POST'])
+def bussiness_login():
+    cursor = mysql.connection.cursor()
+    email = request.form['email']
+    password = request.form['password']
+    
+    # Find user by email
+    cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
+    user = cursor.fetchone()
+    
+    if user and check_password_hash(user['password'], password):
+        session['username'] = user['username']  # Save username in session
+        session['user_id'] = user['id']  # Optionally, save user ID
+        
+        if user['is_new_user']:
+            cursor.execute("UPDATE users SET is_new_user = FALSE WHERE id = %s", (user['id'],))
+            mysql.connection.commit()  # Commit the transaction
+            cursor.close()  # Close the cursor
+            return redirect(url_for('get_started'))
+        else:
+            cursor.close()  # Close the cursor
+            return redirect(url_for('choose'))
+    else:
+        flash("Invalid email or password.")
+        cursor.close()  # Close the cursor
+        return redirect(url_for('login'))
+
+@app.route('/generate_referral_link', methods=['GET'])
+def generate_referral_link():
+    if 'username' in session:
+        username = session['username']
+        referral_id = secrets.token_hex(8)  # Generate a unique referral ID
+        referral_link = f"http://127.0.0.1:5000/fullstack?ref={referral_id}&user={username}"
+        return {'referralLink': referral_link}, 200
+    return {'error': 'User not logged in'}, 401
+
+@app.route('/enroll', methods=['GET', 'POST'])
+def enroll():
+    ref_id = request.args.get('ref')  # Referral ID from the shared link
+    ref_username = request.args.get('user')  # Referrer's username from the shared link
+
+    if request.method == 'POST':
+        email = request.form['email']  # Assume this is collected on the enroll form
+
+        # Update referral record and earnings
+        cursor = mysql.connection.cursor()
+        
+        # Check if the referral exists and update it as enrolled
+        cursor.execute('''
+            UPDATE referrals 
+            SET referred_user_email = %s, enrolled = TRUE 
+            WHERE referral_id = %s AND referrer_username = %s
+        ''', (email, ref_id, ref_username))
+        
+        # Update referrer's earnings by ₹499
+        cursor.execute('''
+            INSERT INTO earnings (username, total_earnings)
+            VALUES (%s, 499)
+            ON DUPLICATE KEY UPDATE total_earnings = total_earnings + 499
+        ''', (ref_username,))
+        
+        mysql.connection.commit()
+        cursor.close()
+        
+        flash("Enrollment successful! The referrer has earned ₹499.")
+        return redirect(url_for('fullstack'))  # Redirect to the earnings page
+    
+    return render_template('fullstack.html')  # Render the enrollment page for GET requests
+
+
+
+@app.route('/earnings')
+def earnings():
+    username = session.get('username')  
+    
+    if not username:
+        flash("Please log in to view your earnings.")
+        return redirect(url_for('login'))
+    
+    cursor = mysql.connection.cursor()
+    cursor.execute('SELECT total_earnings FROM earnings WHERE username = %s', (username,))
+    earnings_data = cursor.fetchone()
+    cursor.close()
+    
+    total_earnings = earnings_data['total_earnings'] if earnings_data else 0
+    return render_template('earnings.html', total_earnings=total_earnings)
+
+
 
 @app.route('/choose')
 def choose():
