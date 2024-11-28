@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Development</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .page-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+
+        .modules-sidebar {
+            width: 25%;
+            max-width: 300px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #457ec0;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd;
+        }
+
+        .modules-sidebar h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+
+        .dropdown-btn {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            text-align: left;
+            width: 100%;
+            padding: 10px 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .module-button {
+            background-color: #6a9fd1;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            text-align: left;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .module-button:hover {
+            background-color: #5a8dc1;
+        }
+
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .course-overview h2, .course-overview h3 {
+            color: #333;
+        }
+    </style>
+    <script>
+        function toggleModules() {
+            const modulesList = document.getElementById('modulesList');
+            modulesList.style.display = modulesList.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="page-container">
+
+        <aside class="modules-sidebar">
+            <h2>Course Modules</h2>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Beginner</button>
+            <div id="beginnerModules" style="display: none;">
+                <a href="fsm1.html" class="module-button">Module 1: HTML Basics</a>
+                <a href="module2.html" class="module-button">Module 2: CSS Essentials</a>
+                <a href="module3.html" class="module-button">Module 3: JavaScript Fundamentals</a>
+            </div>
+        
+            <button class="dropdown-btn" onclick="toggleSection('intermediateModules')">Intermediate</button>
+            <div id="intermediateModules" style="display: none;">
+                <a href="module4.html" class="module-button">Module 4: Responsive Design</a>
+                <a href="module5.html" class="module-button">Module 5: Intermediate CSS Techniques</a>
+                <a href="module6.html" class="module-button">Module 6: Tags and Attributes</a>
+            </div>
+        
+            <button class="dropdown-btn" onclick="toggleSection('advancedModules')">Advanced</button>
+            <div id="advancedModules" style="display: none;">
+                <a href="module7.html" class="module-button">Module 7: Advanced JavaScript</a>
+                <a href="module8.html" class="module-button">Module 8: Final project</a>
+            </div>
+        </aside>
+        
+        <script>
+            function toggleSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                section.style.display = section.style.display === "none" ? "block" : "none";
+            }
+        </script>
+        
+
+
+        <main class="main-content">
+
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230814170347/FullStack-salar.png" alt="Course Banner" class="banner-image">
+
+            <section class="course-overview">
+                <h2>Course Overview</h2>
+                <p>Welcome to the course! In this course, you will learn the fundamentals of web development and build practical projects that will enhance your skills.</p>
+                <h3>What You’ll Learn</h3>
+                <ul>
+                    <li>Understanding web fundamentals</li>
+                    <li>Building responsive layouts</li>
+                    <li>Creating dynamic web applications</li>
+                    <li>Integrating APIs and backend services</li>
+                    <li>Deploying applications to production</li>
+                </ul>
+                <h3>Related Topics</h3>
+                <ul>
+                    <li>Front-End Development</li>
+                    <li>Web Design Principles</li>
+                </ul>
+                <h3>Course Includes</h3>
+                <ul>
+                    <li>Access to all modules</li>
+                    <li>Downloadable resources</li>
+                    <li>Support and Q&A sessions</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

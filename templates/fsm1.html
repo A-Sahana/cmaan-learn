@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stack Development</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    
+    h1 {
+      color: #004080;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+
+    .video-container {
+      width: 100%;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .video-navigation {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .video-navigation button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .video-navigation button:hover {
+      background-color: #0056b3;
+    }
+
+    .video-navigation button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .learning-materials-container {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .pdf-certificate-section {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+    }
+
+    .dropdown-title {
+      display: inline-block;
+      padding: 15px;
+      background-color: #007bff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .dropdown-title:hover {
+      background-color: #0056b3;
+    }
+
+    .fas.fa-chevron-down {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background-color: #f9f9f9;
+      width: 100%;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .locked-section {
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .locked-content a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .locked-content a:hover {
+      background-color: #e0e0e0;
+    }
+
+    .question-icon {
+      color: #007bff;
+      margin-right: 8px;
+      font-size: 24px;
+    }
+
+    .lock-icon {
+      color: #007bff;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Full Stack Development</h1>
+
+  <!-- Video Container -->
+  <div class="video-container">
+    <video id="video" width="100%" height="600" controls controlsList="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
+      <source id="videoSource" src="video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Video Navigation -->
+  <div class="video-navigation">
+    <button id="prevButton" onclick="changeVideo('prev')" disabled>Previous Video</button>
+    <button id="nextButton" onclick="changeVideo('next')">Next Video</button>
+  </div>
+
+  <!-- Learning Materials Section -->
+  <div class="learning-materials-container">
+    <div class="pdf-certificate-section">
+      <div class="dropdown">
+        <span onclick="toggleDropdown()" class="dropdown-title">Learning Materials <i class="fas fa-chevron-down"></i></span>
+        <div class="dropdown-content" id="learningMaterials">
+          <a href="chapter1-notes.pdf" download>Chapter 1 Notes</a>
+          <a href="chapter2-notes.pdf" download>Chapter 2 Notes</a>
+          <a href="additional-resources.pdf" download>Additional Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Section -->
+  <div class="locked-section">
+    <div class="locked-content">
+      <a href="quiz.html">
+        <i class="fas fa-question-circle question-icon"></i> Quiz
+        <i class="fas fa-lock lock-icon"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Certificate Section -->
+  <div class="locked-section">
+    <div class="locked-content">
+      <a href="certificate.html">
+        <i class="fas fa-question-circle question-icon"></i> Claim your course certificate
+        <i class="fas fa-lock lock-icon"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // List of videos in sequence
+  const videos = [
+    { title: "Video 1", src: "video.mp4" },
+    { title: "Video 2", src: "video.mp4" },
+    { title: "Video 3", src: "video.mp4" }
+  ];
+
+  let currentVideoIndex = 0;
+
+  const videoElement = document.getElementById("video");
+  const videoSource = document.getElementById("videoSource");
+
+  // Function to change video
+  function changeVideo(direction) {
+    if (direction === "next") {
+      if (currentVideoIndex < videos.length - 1) {
+        currentVideoIndex++;
+        videoSource.src = videos[currentVideoIndex].src;
+        videoElement.load();
+      }
+    } else if (direction === "prev") {
+      if (currentVideoIndex > 0) {
+        currentVideoIndex--;
+        videoSource.src = videos[currentVideoIndex].src;
+        videoElement.load();
+      }
+    }
+
+    updateNavigationButtons();
+  }
+
+  // Update the state of navigation buttons
+  function updateNavigationButtons() {
+    document.getElementById("prevButton").disabled = currentVideoIndex === 0;
+    document.getElementById("nextButton").disabled = currentVideoIndex === videos.length - 1;
+  }
+
+  // Initialize navigation buttons state
+  updateNavigationButtons();
+  
+  // Prevent video seeking (forwarding)
+  videoElement.addEventListener('seeked', function() {
+    videoElement.currentTime = videoElement.startTime;
+  });
+
+  // Prevent changing the playback speed
+  videoElement.playbackRate = 1;
+  videoElement.addEventListener('ratechange', function() {
+    videoElement.playbackRate = 1;
+  });
+  
+  // Toggle the dropdown menu for learning materials
+  function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.getElementById("learningMaterials");
+    
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      dropdown.classList.remove('open');
+    } else {
+      dropdownContent.style.display = "block";
+      dropdown.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
