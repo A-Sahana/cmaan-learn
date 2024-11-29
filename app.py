@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-from flask import Flask, render_template, request, redirect, url_for
-=======
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
-import mysql.connector
-import MySQLdb.cursors
-import secrets
-
->>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
+import secrets 
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 app.secret_key = "34de185b4e78f74a43b8ce44c51f3d72"
 app.debug = True 
 
-<<<<<<< HEAD
-=======
 # Configure MySQL database
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -28,7 +19,6 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 
->>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
 # Route for the home page
 @app.route('/')
 def home():
@@ -65,6 +55,7 @@ def fullstack():
 @app.route('/backend')
 def backend():
     return render_template('backend.html')
+
 
 @app.route('/graphics')
 def graphics():
@@ -103,15 +94,11 @@ def hr():
 def tutor():
     return render_template('tutor.html')
 
-<<<<<<< HEAD
-@app.route('/bussiness')  # Corrected typo here
-=======
 @app.route('/teach')
 def teach():
     return render_template('teach.html')
 
 @app.route('/bussiness')
->>>>>>> 57bd98bd671d023217a3adaa7e4f1f61933d4e1d
 def bussiness():
     return render_template('bussiness.html')
 
@@ -295,6 +282,17 @@ def business_hr():
 def review():
     return render_template('review.html')
 
+@app.route('/fsc', methods=['GET', 'POST'])
+def fsc():
+    return render_template('fsc.html')
+
+@app.route('/fsm')
+def fsm():
+    return render_template('fsm.html')
+
+@app.route('/bd', methods=['GET', 'POST'])
+def bd():
+    return render_template('bd.html')
 
 
 if __name__ == '__main__':
