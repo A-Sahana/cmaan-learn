@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fsc.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="modules-sidebar">
+            <h2>Course Modules</h2>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Beginner</button>
+            <div id="beginnerModules" style="display: none;">
+                <a href="fsm1.html" class="module-button">Module 1: Introduction to SQL</a>
+                <a href="module2.html" class="module-button">Module 2: Installations</a>
+                <a href="module3.html" class="module-button">Module 3: SQL Commands</a>
+            </div>
+
+            <button class="dropdown-btn" onclick="toggleSection('intermediateModules')">Intermediate</button>
+            <div id="intermediateModules" style="display: none;">
+                <a href="module4.html" class="module-button">Module 4: Data Constraints</a>
+                <a href="module5.html" class="module-button">Module 5: Query,Clauses and Operators</a>
+                <a href="module6.html" class="module-button">Module 6: Aggregates,Indexes and Joins</a>
+            </div>
+
+            <button class="dropdown-btn" onclick="toggleSection('advancedModules')">Advanced</button>
+            <div id="advancedModules" style="display: none;">
+                <a href="module7.html" class="module-button">Module 7: Functions,Views and Triggers</a>
+                <a href="module8.html" class="module-button">Module 8: Store Procedures</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <img src="{{ url_for('static', filename='images/bd.jpg') }}" alt="Course Banner" class="banner-image">
+
+            <section class="course-overview">
+                <h2>Course Overview</h2>
+                <p>Welcome to the course! In this course, you will learn the fundamentals of web development and build practical projects that will enhance your skills.</p>
+                <br>
+                <h3>What You’ll Learn</h3>
+                <ul>
+                    <li>Understanding web fundamentals</li>
+                    <li>Building responsive layouts</li>
+                    <li>Creating dynamic web applications</li>
+                    <li>Integrating APIs and backend services</li>
+                    <li>Deploying applications to production</li>
+                </ul>
+                <br>
+                <h3>Related Topics</h3>
+                <ul>
+                    <li>Backend Development</li>
+                    <li>Web Design Principles</li>
+                </ul>
+                <br>
+                <h3>Course Includes</h3>
+                <ul>
+                    <li>Access to all modules</li>
+                    <li>Downloadable resources</li>
+                    <li>Support and Q&A sessions</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.style.display = section.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
