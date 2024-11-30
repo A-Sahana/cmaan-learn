@@ -308,6 +308,11 @@ def fsm():
 def bd():
     return render_template('bd.html')
 
+@app.route('/paymentf')
+def paymentf():
+    return render_template('paymentf.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
