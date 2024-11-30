@@ -14,7 +14,7 @@
                 <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
                 <span class="logo-text">Learn</span>
             </div>
-            
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -33,7 +33,7 @@
                             <a href="{{ url_for('hr') }}">HR Courses</a>
                         </div>
                     </li>
-                    
+
                     <li class="search-container">
                         <input type="text" placeholder="What do you want to learn?" class="search-bar">
                         <i class="fas fa-search search-icon"></i>
@@ -43,7 +43,7 @@
                     <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 </ul>
             </nav>
-            
+
             <div class="login">
                 <a href="{{ url_for('login') }}">
                     <button class="login-btn">Log In</button>
@@ -53,9 +53,11 @@
     </header>
 
     <main>
-        <section class="image-container">
-            <img src="{{ url_for('static', filename='images/main.jpg') }}" alt="CMAAN Learn" class="responsive-image">
-        </section>
+        <section class="video-container">
+            <video class="responsive-video" autoplay loop muted>
+                <source src="{{ url_for('static', filename='images/CMAAN Learn Vdo2.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
     </main>
     
 
@@ -127,7 +129,7 @@
     <div class="section-container">
         <h1>Accelerate growth – for you or your organization</h1>
         <p class="subtitle">Reach goals faster with one of our plans or programs.</p>
-        
+
         <div class="plan-container">
             <!-- Personal Plan -->
             <div class="plan">
@@ -154,7 +156,7 @@
                     <li>Certification prep</li>
                     <li>Goal-focused recommendations</li>
                     <li>Analytics and adoption reports</li>
-                   
+
                 </ul>
             </div>
 
@@ -169,14 +171,14 @@
                     <li>Certification prep</li>
                     <li>Goal-focused recommendations</li>
                     <li>Hands-on tech training with add-on</li>
-                    
+
                 </ul>
             </div>
         </div>
     </div>
 
 
-   
+
 
 </body>
 </html>

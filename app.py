@@ -108,11 +108,25 @@ def get_started():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Process form data here
-    # e.g., data = request.form['field_name']
+    if request.method == 'POST':
+        first_name = request.form['firstName']
+        last_name = request.form['lastName']
+        email = request.form['email']
+        phone = request.form['phone']
+        username = request.form['username']
+        course_interest = request.form['courseInterest']
+        referral_goal = int(request.form['referralGoal'])
+        comments = request.form.get('comments', '')
 
-    # For demonstration, simply redirect to choose
-    return redirect(url_for('choose'))
+        # Insert form data into MySQL
+        cursor = mysql.connection.cursor()
+        cursor.execute('''
+            INSERT INTO affiliates (first_name, last_name, email, phone, username, course_interest, referral_goal, comments)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        ''', (first_name, last_name, email, phone, username, course_interest, referral_goal, comments))
+        mysql.connection.commit()
+        cursor.close()
+    return redirect(url_for('choose')) 
 
 @app.route('/bussiness_register', methods=['POST'])
 def bussiness_register():
