@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/paymentb.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="payment-container">
+        <h2>Complete Your Payment</h2>
+
+        <!-- Payment Method Options -->
+        <div class="payment-methods">
+            <!-- UPI Option -->
+            <div class="payment-method" id="upiOption">
+                <img src="{{ url_for('static', filename='images/.jpg') }}" alt="UPI">
+                <p>UPI</p>
+            </div>
+
+            <!-- Credit/Debit Card Option -->
+            <div class="payment-method" id="cardOption">
+                <img src="{{ url_for('static', filename='images/.jpg') }}" alt="Card">
+                <p>Credit/Debit Card</p>
+            </div>
+
+            <!-- Net Banking Option -->
+            <div class="payment-method" id="netBankingOption">
+                <img src="{{ url_for('static', filename='images/.jpg') }}" alt="Net Banking">
+                <p>Net Banking</p>
+            </div>
+
+            <!-- Wallet Option -->
+            <div class="payment-method" id="walletOption">
+                <img src="{{ url_for('static', filename='images/.jpg') }}" alt="Wallet">
+                <p>Wallet</p>
+            </div>
+        </div>
+
+        <!-- Payment Form -->
+        <div class="payment-form" id="paymentForm">
+            <!-- Form for Credit/Debit Card -->
+            <div class="form-group" id="cardDetails" style="display: none;">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" class="form-input" id="cardNumber" placeholder="Enter Card Number">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="text" class="form-input" id="expiryDate" placeholder="MM/YY">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-input" id="cvv" placeholder="CVV">
+            </div>
+
+            <!-- Form for UPI -->
+            <div class="form-group" id="upiDetails" style="display: none;">
+                <label for="upiID">Enter UPI ID</label>
+                <input type="text" class="form-input" id="upiID" placeholder="Enter UPI ID">
+            </div>
+
+            <!-- Form for Net Banking -->
+            <div class="form-group" id="netBankingDetails" style="display: none;">
+                <label for="bankName">Bank Name</label>
+                <input type="text" class="form-input" id="bankName" placeholder="Enter Bank Name">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" class="form-input" id="accountNumber" placeholder="Enter Account Number">
+            </div>
+
+            <!-- Form for Wallet -->
+            <div class="form-group" id="walletDetails" style="display: none;">
+                <label for="walletID">Enter Wallet ID</label>
+                <input type="text" class="form-input" id="walletID" placeholder="Enter Wallet ID">
+            </div>
+
+            <button type="submit" class="form-submit">Proceed to Payment</button>
+        </div>
+
+        <div class="payment-info">
+            <p><strong>Note:</strong> Please ensure your payment information is correct before proceeding.</p>
+        </div>
+    </div>
+
+    <script>
+        // Payment Method selection logic
+        document.getElementById("upiOption").addEventListener("click", function () {
+            showPaymentForm('upi');
+        });
+
+        document.getElementById("cardOption").addEventListener("click", function () {
+            showPaymentForm('card');
+        });
+
+        document.getElementById("netBankingOption").addEventListener("click", function () {
+            showPaymentForm('netBanking');
+        });
+
+        document.getElementById("walletOption").addEventListener("click", function () {
+            showPaymentForm('wallet');
+        });
+
+
+    // Payment Method selection logic
+    document.getElementById("upiOption").addEventListener("click", function () {
+        showPaymentForm('upi');
+    });
+
+    document.getElementById("cardOption").addEventListener("click", function () {
+        showPaymentForm('card');
+    });
+
+    document.getElementById("netBankingOption").addEventListener("click", function () {
+        showPaymentForm('netBanking');
+    });
+
+    document.getElementById("walletOption").addEventListener("click", function () {
+        showPaymentForm('wallet');
+    });
+
+    // Function to show the appropriate payment form
+    function showPaymentForm(paymentMethod) {
+        // Hide all forms
+        document.getElementById('cardDetails').style.display = 'none';
+        document.getElementById('upiDetails').style.display = 'none';
+        document.getElementById('netBankingDetails').style.display = 'none';
+        document.getElementById('walletDetails').style.display = 'none';
+
+        // Show the selected payment method form
+        if (paymentMethod === 'card') {
+            document.getElementById('cardDetails').style.display = 'block';
+        } else if (paymentMethod === 'upi') {
+            document.getElementById('upiDetails').style.display = 'block';
+        } else if (paymentMethod === 'netBanking') {
+            document.getElementById('netBankingDetails').style.display = 'block';
+        } else if (paymentMethod === 'wallet') {
+            document.getElementById('walletDetails').style.display = 'block';
+        }
+    }
+
+    // Function to handle Proceed to Payment button click
+    document.querySelector(".form-submit").addEventListener("click", function () {
+        let isFormValid = false;
+
+        // Validate UPI
+        if (document.getElementById('upiDetails').style.display === 'block') {
+            const upiID = document.getElementById('upiID').value.trim();
+            if (upiID) {
+                isFormValid = true;
+            } else {
+                alert("Please enter a valid UPI ID.");
+                return; // Stop the function if UPI ID is not filled
+            }
+        }
+
+        // Validate Credit/Debit Card
+        if (document.getElementById('cardDetails').style.display === 'block') {
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const expiryDate = document.getElementById('expiryDate').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+            if (cardNumber && expiryDate && cvv) {
+                isFormValid = true;
+            } else {
+                alert("Please fill in all credit/debit card details.");
+                return; // Stop the function if card details are incomplete
+            }
+        }
+
+        // Validate Net Banking
+        if (document.getElementById('netBankingDetails').style.display === 'block') {
+            const bankName = document.getElementById('bankName').value.trim();
+            const accountNumber = document.getElementById('accountNumber').value.trim();
+            if (bankName && accountNumber) {
+                isFormValid = true;
+            } else {
+                alert("Please enter all net banking details.");
+                return; // Stop the function if net banking details are incomplete
+            }
+        }
+
+        // Validate Wallet
+        if (document.getElementById('walletDetails').style.display === 'block') {
+            const walletID = document.getElementById('walletID').value.trim();
+            if (walletID) {
+                isFormValid = true;
+            } else {
+                alert("Please enter a valid wallet ID.");
+                return; // Stop the function if wallet ID is not filled
+            }
+        }
+
+        // If the form is valid, proceed to fsc.html
+        if (isFormValid) {
+            window.location.href = "{{ url_for('bd') }}"; // Redirect to the bd.html page
+        } else {
+            alert("Please enter the required payment details to proceed.");
+        }
+    });
+</script>

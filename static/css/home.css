@@ -470,7 +470,7 @@ section.banner-section:hover {
 }
 
 .feature i {
-    color: #30659e;
+    color: #163c66;
     margin-bottom: 15px;
 }
 
@@ -769,7 +769,7 @@ p.subtitle {
 }
 
 .features li::before {
-    content: "✔";
+    content: ".";
     color: #4caf50;
     position: absolute;
     left: 0;
