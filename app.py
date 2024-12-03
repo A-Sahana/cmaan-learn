@@ -155,7 +155,7 @@ def bussiness_register():
     
     flash("Registration successful. Please log in.")
     cursor.close() 
-    return redirect(url_for('bussiness_login'))
+    return redirect(url_for('get_started'))
 
 @app.route('/bussiness_login', methods=['POST'])
 def bussiness_login():
@@ -182,16 +182,19 @@ def bussiness_login():
     else:
         flash("Invalid email or password.")
         cursor.close()  # Close the cursor
-        return redirect(url_for('login'))
+        return redirect(url_for('bussiness'))
+
 
 @app.route('/generate_referral_link', methods=['GET'])
 def generate_referral_link():
     if 'username' in session:
         username = session['username']
+        course = request.args.get('course', 'default-course')  # Get course name from query params
         referral_id = secrets.token_hex(8)  # Generate a unique referral ID
-        referral_link = f"http://127.0.0.1:5000/fullstack?ref={referral_id}&user={username}"
+        referral_link = f"http://127.0.0.1:5000/{course}?ref={referral_id}&user={username}"
         return {'referralLink': referral_link}, 200
     return {'error': 'User not logged in'}, 401
+
 
 @app.route('/enroll', methods=['GET', 'POST'])
 def enroll():
