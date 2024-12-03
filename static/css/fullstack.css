@@ -541,7 +541,7 @@ header {
 }
 /* Copy button styling */
 button {
-    background-color: #007bff;
+    background-color: #30659e;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -551,7 +551,7 @@ button {
     transition: background-color 0.2s, transform 0.1s;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #006b82;
 }
 button:active {
     transform: scale(0.95);
