@@ -69,13 +69,72 @@
             <div class="pricing">
                 <span class="original-price">₹5,999</span>
                 <span class="discount-price">₹3,499</span>
-                
-                <form action="{{ url_for('fsc') }}" method="post">
-                    <button type="submit" class="enroll-button">Enroll Now</button>
-                </form>             
+                <button type="button" class="enroll-button" onclick="showTermsModal()">Enroll Now</button>         
             </div>
         </div>
     </div>
+
+    <!-- Enhanced Terms and Conditions Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content enhanced-modal">
+            <div class="modal-header">
+                <h2>Terms and Conditions</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please carefully review the following terms before proceeding:</p>
+                <ul class="terms-list">
+                    <li><strong>Course Commitment:</strong> Complete the course within the specified timeline to maximize your learning experience.</li>
+                    <li><strong>Content Protection:</strong> All course content is copyrighted and cannot be redistributed under any circumstances.</li>
+                    <li><strong>Refund Policy:</strong> No refunds will be issued once you enroll in the course.</li>
+                </ul>
+                <div class="agreement">
+                    <label>
+                        <input type="checkbox" id="agreeCheckbox"> I have read and agree to the terms and conditions
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="close-btn" onclick="closeTermsModal()">Cancel</button>
+                <button class="agree-btn" id="proceedButton" disabled>Proceed</button>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+<script>
+    // Function to show the modal
+    function showTermsModal() {
+        document.getElementById("termsModal").style.display = "flex"; // Show the modal
+        document.body.classList.add("modal-active"); // Add blur effect to background
+    }
+
+    // Function to close the modal
+    function closeTermsModal() {
+        document.getElementById("termsModal").style.display = "none"; // Hide the modal
+        document.body.classList.remove("modal-active"); // Remove blur effect
+    }
+
+    // Safely access the checkbox and button elements
+    const checkbox = document.getElementById("agreeCheckbox");
+    const proceedButton = document.getElementById("proceedButton");
+
+    if (checkbox && proceedButton) {
+        // Enable/disable the Proceed button based on checkbox state
+        checkbox.addEventListener("change", function () {
+            proceedButton.disabled = !checkbox.checked; // Enable button only if checkbox is checked
+        });
+
+        // Redirect to the FSC page when "Proceed" is clicked
+        proceedButton.addEventListener("click", function () {
+            window.location.href = "{{ url_for('paymentf') }}"; // Use Flask's url_for for routing
+        });
+    } else {
+        console.error("Checkbox or Proceed button not found in the DOM."); // Log error if elements are missing
+    }
+</script>
+
     
     <div class="course-features">
         <div class="features-section">

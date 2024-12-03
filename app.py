@@ -303,14 +303,22 @@ def review():
 def fsc():
     return render_template('fsc.html')
 
-@app.route('/fsm')
-def fsm():
-    return render_template('fsm.html')
+@app.route('/fsm1')
+def fsm1():
+    return render_template('fsm1.html')
 
 @app.route('/bd', methods=['GET', 'POST'])
 def bd():
     return render_template('bd.html')
 
+@app.route('/paymentf')
+def paymentf():
+    return render_template('paymentf.html')
+
+
+@app.route('/paymentb')
+def paymentb():
+    return render_template('paymentb.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
