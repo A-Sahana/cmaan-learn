@@ -3,14 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Earnings</title>
+    <title>Cmaan.learn Earnings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/earnings.css') }}">
 </head>
 <body>
     <header>
-        <h1>Your Earnings</h1>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ url_for('bussiness') }}">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                </a>
+                <span class="logo-text">Learn Business</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('choose') }}">Cmaan Learn Business</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('business_fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('business_backend') }}">Backend Development</a>
+                            <a href="{{ url_for('business_graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('business_android') }}">Android Development</a>
+                            <a href="{{ url_for('business_automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('business_ios') }}">IOS Development</a>
+                            <a href="{{ url_for('business_cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('business_sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('business_telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('business_hr') }}">HR Courses</a>
+                        </div>
+                    </li>                    
+                    <li><a href="{{ url_for('earnings') }}">Earnings</a></li> 
+                    <li class="search-container">
+                        <input type="text" placeholder="Search" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                </ul>
+            </nav>
+            
+           
+        </div>
     </header>
     <main>
-        <p>Total Earnings: ₹{{ total_earnings }}</p>
+        <section class="hero">
+            <h1>Track Your Earnings</h1>
+            <p>View your commissions and total earnings from your referrals and course enrollments.</p>
+        </section>
+
+        <section class="earnings-details">
+            <h2>Your Earnings Overview</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Si No</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Commission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in earnings %}
+                    <tr>
+                        <td>{{ record.sino }}</td>
+                        <td>{{ record.name }}</td>
+                        <td>{{ record.course }}</td>
+                        <td>{{ record.commission }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="total-earnings">
+                <h3>Total Earnings: ₹{{ total_earnings }}</h3>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <ul>
+                    <li><strong>cmaanlearn.com</strong></li>
+                    <li>About Us</li>
+                    <li>Events</li>
+                    <li>Partners & Integrations</li>
+                    <li>Partner with cmaanlearn</li>
+                    <li>Take a product tour</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <ul>
+                    <li><strong>Contact Us</strong></li>
+                    <li>Help</li>
+                    <li>Terms & conditions</li>
+                    <li>Privacy policy</li>
+                    <li>Cookie settings</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p>Follow us</p>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-x-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 cmaanlearn, Inc.</p>
+            <p>cmaanlearn — The Power for Success</p>
+        </div>
+    </footer>
+
+    <script>
+        //Highlight table rows on hover
+        const rows = document.querySelectorAll('table tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseover', () => row.classList.add('highlight'));
+            row.addEventListener('mouseout', () => row.classList.remove('highlight'));
+        });
+    </script>
 </body>
 </html>

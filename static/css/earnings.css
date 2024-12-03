@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+   
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    background-color: #ffffffcf;
+    padding: 17px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.logo img {
+    width: 150px;
+    height: 40px;
+    margin-left: 50px;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 550;
+    margin-left: 0;
+    margin-top: 5px;
+    color: #262666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-left: 32px;
+}
+
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333; 
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(0, 151, 178, 0.1);
+    color: #0097b2;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+    width: 500px; /* Increased width */
+    background-color: #f9f9f9;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 350px; /* Adjusted focused width */
+    border-color: #30659e;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    color: #333;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.search-container:hover .search-icon {
+    color: #0097b2;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn {
+    background-color: #30659e;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background-color: #006b82;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    padding: 10px 0;
+    border-radius: 4px;
+    flex-direction: column;
+}
+
+/* Ensure the parent has relative positioning */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Initially hide the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 200px;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style individual links in the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Highlight dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+header {
+    position: relative;
+    z-index: 10;
+}
+
+.hero {
+    background-image: url('../images/earnings.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero h1,
+.hero p,
+.hero .buttons {
+    position: relative;
+    margin-right: 900px;
+    z-index: 2; /* Brings text and buttons above the overlay */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+
+.earnings-details {
+    width: 90%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table tr:hover {
+    background: #f4f4f4;
+}
+
+.total-earnings {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #003366;
+}
+
+.highlight {
+    background-color: #f9f9a9 !important;
+}
+
+footer {
+    background: #003366;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 40px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li:first-child {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #9c27b0;
+    font-weight: bold;
+}
+
+.social-icons i {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.awards img {
+    width: 80px;
+    margin: 10px 0;
+}
+
+.language-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 12px;
+}
