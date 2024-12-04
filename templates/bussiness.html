@@ -89,52 +89,40 @@
         </section>
 
         <!-- Login Modal -->
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeLogin">&times;</span>
-                <center><h2>Welcome</h2></center>
-                <form id="loginForm" action="{{ url_for('bussiness_login') }}" method="POST">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required><br>
-                    <center><button type="submit" class="login-btn">Login</button></center>
-                    <!-- Divider with "or" -->
-            <div class="divider">
-                <span>or</span>
-            </div>
-            
-            <!-- Google Authentication Button -->
-            <button type="button" class="google-auth-btn" onclick="loginWithGoogle()">Login with Google</button>
-                </form>
-                <p class="modal-footer-text">Don't have an account? <a href="#" id="registerLink">Register here</a></p>
-            </div>
-        </div>
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <center><h2>Welcome</h2></center>
+        <form id="loginForm" action="{{ url_for('bussiness_login') }}" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <center><button type="submit" class="login-btn">Login</button></center>
+        </form>
+        <p class="modal-footer-text">Don't have an account? <a href="#" id="registerLink">Register here</a></p>
+    </div>
+</div>
+
 
         <!-- Registration Modal -->
-        <div id="registerModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeRegister">&times;</span>
-                <center><h2>Nice to See You</h2></center>
-                <form id="registerForm" action="{{ url_for('bussiness_register') }}" method="POST">
-                    <label for="name">Username:</label>
-                    <input type="text" id="name" name="name" required><br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required><br>
-                    <center><button type="submit" class="register-btn">Register</button></center>
-                    <!-- Divider with "or" -->
-            <div class="divider">
-                <span>or</span>
-            </div>
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeRegister">&times;</span>
+        <center><h2>Nice to See You</h2></center>
+        <form id="registerForm" action="{{ url_for('bussiness_register') }}" method="POST">
+            <label for="name">Username:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <center><button type="submit" class="register-btn">Register</button></center>
+        </form>
+        <p class="modal-footer-text">Already have an account? <a href="#" id="loginLink">Login here</a></p>
+    </div>
+</div>
 
-            <!-- Google Authentication Button -->
-            <button type="button" class="google-auth-btn" onclick="registerWithGoogle()">Register with Google</button>
-                </form>
-                <p class="modal-footer-text">Already have an account? <a href="#" id="loginLink">Login here</a></p>
-            </div>
-        </div>
     </main>
 
     <footer>
