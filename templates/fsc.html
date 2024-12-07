@@ -60,22 +60,22 @@
             <h2>Course Modules</h2>
             <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Beginner</button>
             <div id="beginnerModules" style="display: none;">
-                <a href="fsm1.html" class="module-button">Module 1: HTML Basics</a>
-                <a href="module2.html" class="module-button">Module 2: CSS Essentials</a>
-                <a href="module3.html" class="module-button">Module 3: JavaScript Fundamentals</a>
+                <a href="{{ url_for('fsm1') }}" class="module-button">Module 1: HTML Basics</a>
+                <a href="{{ url_for('fsm2') }}" class="module-button">Module 2: CSS Essentials</a>
+                <a href="{{ url_for('fsm3') }}" class="module-button">Module 3: JavaScript Fundamentals</a>
             </div>
 
             <button class="dropdown-btn" onclick="toggleSection('intermediateModules')">Intermediate</button>
             <div id="intermediateModules" style="display: none;">
-                <a href="module4.html" class="module-button">Module 4: Responsive Design</a>
-                <a href="module5.html" class="module-button">Module 5: Intermediate CSS Techniques</a>
-                <a href="module6.html" class="module-button">Module 6: Tags and Attributes</a>
+                <a href="{{ url_for('fsm4') }}" class="module-button">Module 4: Responsive Design</a>
+                <a href="{{ url_for('fsm5') }}" class="module-button">Module 5: Intermediate CSS Techniques</a>
+                <a href="{{ url_for('fsm6') }}" class="module-button">Module 6: Tags and Attributes</a>
             </div>
 
             <button class="dropdown-btn" onclick="toggleSection('advancedModules')">Advanced</button>
             <div id="advancedModules" style="display: none;">
-                <a href="module7.html" class="module-button">Module 7: Advanced JavaScript</a>
-                <a href="module8.html" class="module-button">Module 8: Final project</a>
+                <a href="{{ url_for('fsm7') }}" class="module-button">Module 7: Advanced JavaScript</a>
+                <a href="{{ url_for('fsm8') }}" class="module-button">Module 8: Final project</a>
             </div>
         </aside>
 
