@@ -124,9 +124,18 @@ def submit():
             INSERT INTO affiliates (first_name, last_name, email, phone, username, course_interest, referral_goal, comments)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         ''', (first_name, last_name, email, phone, username, course_interest, referral_goal, comments))
+        
+        # Update user's `has_filled_get_started` status
+        cursor.execute("UPDATE users SET has_filled_get_started = TRUE WHERE email = %s", (email,))
         mysql.connection.commit()
         cursor.close()
-    return redirect(url_for('choose')) 
+        
+        # Ensure session remains active after get_started
+        session['username'] = username
+        session['email'] = email
+        
+    return redirect(url_for('choose'))
+
 
 @app.route('/bussiness_register', methods=['POST'])
 def bussiness_register():
@@ -140,22 +149,26 @@ def bussiness_register():
     existing_user = cursor.fetchone()
     
     if existing_user:
-        flash("User already exists. Please log in.")
-        return redirect(url_for('bussiness_login'))
+        return redirect(url_for('bussiness'))
     
     # Hash password for security
     hashed_password = generate_password_hash(password)
     
     # Insert new user into database
     cursor.execute(
-        "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",
-        (username, email, hashed_password)
+        "INSERT INTO users (username, email, password, has_filled_get_started) VALUES (%s, %s, %s, %s)",
+        (username, email, hashed_password, False)
     )
     mysql.connection.commit()
     
-    flash("Registration successful. Please log in.")
-    cursor.close() 
+    # Set session after registration
+    session['username'] = username
+    session['email'] = email
+        
+    # Redirect to get_started
+    cursor.close()
     return redirect(url_for('get_started'))
+
 
 @app.route('/bussiness_login', methods=['POST'])
 def bussiness_login():
@@ -171,18 +184,15 @@ def bussiness_login():
         session['username'] = user['username']  # Save username in session
         session['user_id'] = user['id']  # Optionally, save user ID
         
-        if user['is_new_user']:
-            cursor.execute("UPDATE users SET is_new_user = FALSE WHERE id = %s", (user['id'],))
-            mysql.connection.commit()  # Commit the transaction
-            cursor.close()  # Close the cursor
+        if not user['has_filled_get_started']:  # Check if user has filled the form
             return redirect(url_for('get_started'))
         else:
-            cursor.close()  # Close the cursor
             return redirect(url_for('choose'))
     else:
         flash("Invalid email or password.")
-        cursor.close()  # Close the cursor
-        return redirect(url_for('bussiness'))
+        cursor.close()
+        return redirect(url_for('bussiness')) 
+
 
 
 @app.route('/generate_referral_link', methods=['GET'])
@@ -196,38 +206,7 @@ def generate_referral_link():
     return {'error': 'User not logged in'}, 401
 
 
-@app.route('/enroll', methods=['GET', 'POST'])
-def enroll():
-    ref_id = request.args.get('ref')  # Referral ID from the shared link
-    ref_username = request.args.get('user')  # Referrer's username from the shared link
 
-    if request.method == 'POST':
-        email = request.form['email']  # Assume this is collected on the enroll form
-
-        # Update referral record and earnings
-        cursor = mysql.connection.cursor()
-        
-        # Check if the referral exists and update it as enrolled
-        cursor.execute('''
-            UPDATE referrals 
-            SET referred_user_email = %s, enrolled = TRUE 
-            WHERE referral_id = %s AND referrer_username = %s
-        ''', (email, ref_id, ref_username))
-        
-        # Update referrer's earnings by ₹499
-        cursor.execute('''
-            INSERT INTO earnings (username, total_earnings)
-            VALUES (%s, 499)
-            ON DUPLICATE KEY UPDATE total_earnings = total_earnings + 499
-        ''', (ref_username,))
-        
-        mysql.connection.commit()
-        cursor.close()
-        
-        flash("Enrollment successful! The referrer has earned ₹499.")
-        return redirect(url_for('fullstack'))  # Redirect to the earnings page
-    
-    return render_template('fullstack.html')  # Render the enrollment page for GET requests
 
 
 
