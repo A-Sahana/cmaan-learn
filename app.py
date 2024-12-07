@@ -24,6 +24,9 @@ mysql = MySQL(app)
 def home():
     return render_template('home.html')
 
+
+
+
 # Route for the login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -282,9 +285,6 @@ def review():
 def fsc():
     return render_template('fsc.html')
 
-@app.route('/fsm1')
-def fsm1():
-    return render_template('fsm1.html')
 
 @app.route('/bd', methods=['GET', 'POST'])
 def bd():
@@ -298,6 +298,41 @@ def paymentf():
 @app.route('/paymentb')
 def paymentb():
     return render_template('paymentb.html')
+
+
+@app.route('/fsm1')
+def fsm1():
+    return render_template('fsm1.html')
+
+@app.route('/fsm2')
+def fsm2():
+    return render_template('fsm2.html')
+
+@app.route('/fsm3')
+def fsm3():
+    return render_template('fsm3.html')
+
+@app.route('/fsm4')
+def fsm4():
+    return render_template('fsm4.html')
+
+@app.route('/fsm5')
+def fsm5():
+    return render_template('fsm5.html')
+
+@app.route('/fsm6')
+def fsm6():
+    return render_template('fsm6.html')
+
+@app.route('/fsm7')
+def fsm7():
+    return render_template('fsm7.html')
+
+@app.route('/fsm8')
+def fsm8():
+    return render_template('fsm8.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
