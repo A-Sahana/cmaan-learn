@@ -5,10 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cmaan.learn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tutor.css') }}">
+    <style>
+        .cracker-particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #FFCC00;
+            border-radius: 50%;
+            opacity: 1;
+            animation: particle-animation 1s ease-out forwards;
+        }
+
+        /* Particle animation */
+        @keyframes particle-animation {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -34,18 +56,15 @@
                             <a href="{{ url_for('hr') }}">HR Courses</a>
                         </div>
                     </li>
-                    
                     <li class="search-container">
                         <input type="text" placeholder="What do you want to learn?" class="search-bar">
                         <i class="fas fa-search search-icon"></i>
                     </li>
-                    
                     <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
                     <li><a href="{{ url_for('tutor') }}">Become Tutor</a></li>
                     <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 </ul>
             </nav>
-            
             <div class="login">
                 <a href="{{ url_for('login') }}">
                     <button class="login-btn">Log In</button>
@@ -59,6 +78,13 @@
         <h1>Teach. Create. Earn.</h1>
     </section>
 
+    <main>
+        <section class="hero">
+            <h1>Education is the key to success in life, and teachers make a lasting impact in the lives of their students. </h1>
+            <p> - Solomon Ortiz</p>
+        </section>
+    </main>
+
     <!-- Content Section Before Image Section -->
     <section class="content-section">
         <div class="container">
@@ -70,40 +96,6 @@
                 <h3>What's in it for me?</h3>
                 <p>The material you produce will be used to train professionals worldwide, increasing visibility and helping you reach a larger audience for your content. Be a part of an elite worldwide training community!</p>
             </div>
-            <div class="form-content">
-                <div class="form-box">
-                    <h3>Interested in Working With Us?</h3>
-                    <form>
-                        <label for="name">Name*</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="course">Select Course*</label>
-                        <select id="course" name="course">
-                            <option value="fullstack">Full Stack Development</option>
-                            <option value="backend">Backend Development</option>
-                            <option value="graphics">Graphics Designing</option>
-                            <option value="android">Android Development</option>
-                            <option value="automation">Automation Testing</option>
-                            <option value="ios">IOS Development</option>
-                            <option value="cloud">Cloud Engineer</option>
-                            <option value="sales">Sales & Marketing</option>
-                            <option value="telecalling">Tele-Calling</option>
-                            <option value="hr">HR Courses</option>
-                        </select>
-
-                        <label for="phone">Phone Number*</label>
-                        <input type="tel" id="phone" name="phone" required>
-
-                        <label for="linkedin">LinkedIn URL</label>
-                        <input type="url" id="linkedin" name="linkedin">
-
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -111,10 +103,65 @@
     <section class="tutor" id="tutor">
         <div class="content">
             <h2>Start Your Tutoring Journey With Us</h2>
-            <a href="https://forms.zohopublic.in/chikkuscmaantec1/form/ContactUs/formperma/sLIFFNLHVYgke_bA4R2JO8TR5IBNx6a1bZvQkojGQNQ" class="btn">Become Tutor</a>
+            <a href="https://forms.zohopublic.in/chikkuscmaantec1/form/ContactUs/formperma/sLIFFNLHVYgke_bA4R2JO8TR5IBNx6a1bZvQkojGQNQ" class="btn" id="become-tutor">
+                Become Tutor
+            </a>
         </div>
     </section>
 
-    
+    <div class="startcom">
+        <h1>Why you should start tutoring?</h1>
+        <div class="features">
+            <div class="feature">
+                <img src="static/images/teach.png" alt="Teach your way">
+                <h2>Teach on Your Terms</h2>
+                <p>You decide what and how you want to teach, giving you full autonomy over your courses and we give the freedom to set your own hours, allowing you to balance your personal life with your teaching goals.</p>
+            </div>
+            <div class="feature">
+                <img src="static/images/inspire.png" alt="Inspire learners">
+                <h2>Inspire Others</h2>
+                <p>Share your knowledge to help others develop new skills, pursue their passions, and advance in their careers. Your guidance can have a lasting impact on learners, motivating them to reach their full potential.</p>
+            </div>
+            <div class="feature">
+                <img src="static/images/reward.png" alt="Get rewarded">
+                <h2>Earn Rewards</h2>
+                <p>Tutoring can connect you with other professionals, enhancing your career opportunities and expanding your network and earn money for every course or lesson you deliver, turning your passion into a profitable venture.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tutorButton = document.getElementById("become-tutor");
+
+        tutorButton.addEventListener("mouseenter", (e) => {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement("span");
+                particle.classList.add("cracker-particle");
+
+                // Random angle for particle movement
+                const angle = Math.random() * 2 * Math.PI;
+                const radius = Math.random() * 100; // Random distance
+                const offsetX = Math.cos(angle) * radius;
+                const offsetY = Math.sin(angle) * radius;
+
+                // Position particle near the button
+                particle.style.left = `${e.offsetX}px`;
+                particle.style.top = `${e.offsetY}px`;
+
+                // Use CSS variables for animation
+                particle.style.setProperty("--x", offsetX);
+                particle.style.setProperty("--y", offsetY);
+
+                tutorButton.appendChild(particle);
+
+                // Remove particle after animation
+                particle.addEventListener("animationend", () => {
+                    particle.remove();
+                });
+            }
+        });
+    });
+    </script>
 </body>
 </html>
