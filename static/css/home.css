@@ -123,6 +123,7 @@ header {
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     font-weight: 600;
+    margin: 15px;
 }
 
 .login-btn:hover {
@@ -821,4 +822,49 @@ p.subtitle {
 
 .deal .btn:hover {
     background-color: #1e173a; /* Darker green on hover */
+}
+
+.hero {
+    background-image: url('../images/courses1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero h1,
+.hero p,
+.hero .buttons {
+    position: relative;
+    margin-right: 900px;
+    z-index: 2; /* Brings text and buttons above the overlay */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
 }
