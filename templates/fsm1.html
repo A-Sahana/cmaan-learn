@@ -57,7 +57,7 @@
         <!-- Sidebar -->
         <aside class="modules-sidebar">
             <h2>Course Modules</h2>
-            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 1</button>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 1 Syllabus</button>
             <div id="beginnerModules" style="display: none;">
                 <ul>CHAPTER 1:</ul>
                 <ul>Introduction to HTML</ul>
@@ -101,53 +101,48 @@
 
 <script>
     
+
     const videos = [
-    "{{ url_for('static', filename='images/vdo 1.mov') }}", 
-    "{{ url_for('static', filename='images/vdo 2.mov') }}"
-];
+        "{{ url_for('static', filename='images/vdo 1.mp4') }}", 
+        "{{ url_for('static', filename='images/vdo 2.mp4') }}",
+        "{{ url_for('static', filename='images/vdo 3.mp4') }}"
+    ];
 
-let currentVideoIndex = 0;
+    let currentVideoIndex = 0;
 
-const videoElement = document.getElementById('tutorial-video');
-const videoSource = document.getElementById('video-source');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const assessmentBtnContainer = document.getElementById('assessment-btn-container');
+    const videoElement = document.getElementById('tutorial-video');
+    const videoSource = document.getElementById('video-source');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
 
-function changeVideo(direction) {
-    if (direction === 'next') {
-        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-    } else if (direction === 'prev') {
-        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+    function changeVideo(direction) {
+        if (direction === 'next') {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        } else if (direction === 'prev' && currentVideoIndex > 0) {
+            currentVideoIndex = (currentVideoIndex - 1) % videos.length;
+        }
+
+        videoSource.src = videos[currentVideoIndex];
+        videoElement.load();
+        videoElement.play();
+        updateButtonStates();
     }
 
-    videoSource.src = videos[currentVideoIndex];
-    videoElement.load();
-    videoElement.play();
-
-    if (currentVideoIndex === videos.length - 1) {
-        assessmentBtnContainer.style.display = 'block';
-    } else {
-        assessmentBtnContainer.style.display = 'none';
+    function updateButtonStates() {
+        prevBtn.disabled = currentVideoIndex === 0;
+        nextBtn.disabled = currentVideoIndex === videos.length - 1;
     }
 
-    updateButtonStates();
-}
+    document.addEventListener('DOMContentLoaded', function () {
+        videoSource.src = videos[currentVideoIndex];
+        videoElement.load();
+        videoElement.play();
+        updateButtonStates();
+    });
 
-function updateButtonStates() {
-    prevBtn.disabled = currentVideoIndex === 0;
-    nextBtn.disabled = currentVideoIndex === videos.length - 1;
-}
+    videoElement.addEventListener('ended', updateButtonStates);
 
-document.addEventListener('DOMContentLoaded', function () {
-    videoSource.src = videos[currentVideoIndex];
-    videoElement.load();
-    videoElement.play();
-    updateButtonStates();
-});
 
-videoElement.addEventListener('ended', updateButtonStates);
-assessmentBtnContainer.style.display = 'none';
 
 </script>
 
