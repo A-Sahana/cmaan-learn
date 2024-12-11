@@ -396,19 +396,7 @@ def generate_referral_link():
 
 @app.route('/earnings')
 def earnings():
-    username = session.get('username')  
-    
-    if not username:
-        flash("Please log in to view your earnings.")
-        return redirect(url_for('login'))
-    
-    cursor = mysql.connection.cursor()
-    cursor.execute('SELECT total_earnings FROM earnings WHERE username = %s', (username,))
-    earnings_data = cursor.fetchone()
-    cursor.close()
-    
-    total_earnings = earnings_data['total_earnings'] if earnings_data else 0
-    return render_template('earnings.html', total_earnings=total_earnings)
+    return render_template('earnings.html')
 
 
 
