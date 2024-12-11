@@ -125,6 +125,61 @@ const swiper = new Swiper('.swiper', {
     
     </div>
     </main>
+    
+    <!-- Login/Register Popup -->
+<div id="popup" class="popup-container">
+    <div class="popup-content">
+        <!-- Close button -->
+        <button id="close-btn" class="close-btn">&times;</button>
+        
+        <div class="tabs">
+            <button id="register-tab">Register</button>
+            <button id="login-tab" class="active">Login</button>
+        </div>
+       
+        <form id="register-form" class="form" style="display: none;">
+            <input type="email" placeholder="Email" required>
+            <input type="username" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <form id="login-form" class="form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+<script>
+    // Function to show the popup after 3 seconds
+    window.onload = function() {
+        setTimeout(function() {
+            document.getElementById('popup').style.display = 'flex';
+        }, 3000); // 3 seconds delay
+    };
+
+    // Switch between login and register forms
+
+    document.getElementById('register-tab').onclick = function() {
+        document.getElementById('register-form').style.display = 'block';
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-tab').classList.add('active');
+        document.getElementById('login-tab').classList.remove('active');
+    };
+
+    document.getElementById('login-tab').onclick = function() {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('login-tab').classList.add('active');
+        document.getElementById('register-tab').classList.remove('active');
+    };
+
+    // Close the popup when the close button is clicked
+    document.getElementById('close-btn').onclick = function() {
+        document.getElementById('popup').style.display = 'none';
+    };
+</script>
+
 
     <section class="button-slider">
         <div class="button-container">
