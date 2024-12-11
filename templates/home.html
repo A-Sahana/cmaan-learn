@@ -151,33 +151,49 @@ const swiper = new Swiper('.swiper', {
     </div>
 </div>
 <script>
-    // Function to show the popup after 3 seconds
-    window.onload = function() {
+// Function to show the popup after 3 seconds, if not already shown
+window.onload = function() {
+    // Check if the user has already interacted with the popup
+    if (!sessionStorage.getItem('popupShown')) {
         setTimeout(function() {
             document.getElementById('popup').style.display = 'flex';
         }, 3000); // 3 seconds delay
-    };
+    }
+};
 
-    // Switch between login and register forms
+// Close the popup and set sessionStorage to prevent it from showing again
+document.getElementById('close-btn').onclick = function() {
+    document.getElementById('popup').style.display = 'none';
+    sessionStorage.setItem('popupShown', 'true');
+};
 
-    document.getElementById('register-tab').onclick = function() {
-        document.getElementById('register-form').style.display = 'block';
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('register-tab').classList.add('active');
-        document.getElementById('login-tab').classList.remove('active');
-    };
+// Switch between login and register forms
+document.getElementById('register-tab').onclick = function() {
+    document.getElementById('register-form').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-tab').classList.add('active');
+    document.getElementById('login-tab').classList.remove('active');
+};
 
-    document.getElementById('login-tab').onclick = function() {
-        document.getElementById('login-form').style.display = 'block';
-        document.getElementById('register-form').style.display = 'none';
-        document.getElementById('login-tab').classList.add('active');
-        document.getElementById('register-tab').classList.remove('active');
-    };
+document.getElementById('login-tab').onclick = function() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('login-tab').classList.add('active');
+    document.getElementById('register-tab').classList.remove('active');
+};
 
-    // Close the popup when the close button is clicked
-    document.getElementById('close-btn').onclick = function() {
-        document.getElementById('popup').style.display = 'none';
-    };
+// If the user successfully logs in or registers, set sessionStorage to prevent future popups
+document.getElementById('login-form').onsubmit = function() {
+    sessionStorage.setItem('popupShown', 'true');
+    document.getElementById('popup').style.display = 'none';
+    return false; // Prevent form submission
+};
+
+document.getElementById('register-form').onsubmit = function() {
+    sessionStorage.setItem('popupShown', 'true');
+    document.getElementById('popup').style.display = 'none';
+    return false; // Prevent form submission
+};
 </script>
 
 
