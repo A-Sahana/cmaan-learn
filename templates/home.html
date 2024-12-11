@@ -59,11 +59,6 @@
 
 
     <main>
-        {% if username %}
-            <center><h1>Welcome {{ username }}!</h1></center>
-        {% else %}
-        <center><h1>Welcome Guest!</h1></center>
-        {% endif %}
         <div class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -138,15 +133,15 @@ const swiper = new Swiper('.swiper', {
             <button id="login-tab" class="active">Login</button>
         </div>
        
-        <form id="register-form" class="form" style="display: none;">
-            <input type="email" placeholder="Email" required>
-            <input type="username" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
+        <form id="register-form" class="form" style="display: none;" method="POST" action="{{ url_for('pop_register') }}">
+            <input id="register-email" type="email" placeholder="Email" name="email" required>
+            <input id="register-username" type="username" placeholder="Username" name="username" required>
+            <input id="register-password" type="password" placeholder="Password" name="password" required>
             <button type="submit">Register</button>
         </form>
-        <form id="login-form" class="form">
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
+        <form id="login-form" class="form" method="POST" action="{{ url_for('pop_login') }}">
+            <input id="login-email" type="email" placeholder="Email" name="email" required>
+            <input id="login-password" type="password" placeholder="Password" name="password" required>
             <button type="submit">Login</button>
         </form>
     </div>
@@ -183,17 +178,47 @@ document.getElementById('login-tab').onclick = function() {
     document.getElementById('register-tab').classList.remove('active');
 };
 
-// If the user successfully logs in or registers, set sessionStorage to prevent future popups
-document.getElementById('login-form').onsubmit = function() {
-    sessionStorage.setItem('popupShown', 'true');
-    document.getElementById('popup').style.display = 'none';
-    return false; // Prevent form submission
+// Handle Login Form Submission
+document.getElementById('login-form').onsubmit = async function (e) {
+    e.preventDefault(); // Prevent page reload
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const response = await fetch('/pop_login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+    });
+
+    const result = await response.json();
+    alert(result.message);
+
+    if (response.ok) {
+        sessionStorage.setItem('popupShown', 'true');
+        document.getElementById('popup').style.display = 'none';
+    }
 };
 
-document.getElementById('register-form').onsubmit = function() {
-    sessionStorage.setItem('popupShown', 'true');
-    document.getElementById('popup').style.display = 'none';
-    return false; // Prevent form submission
+// Handle Register Form Submission
+document.getElementById('register-form').onsubmit = async function (e) {
+    e.preventDefault(); // Prevent page reload
+    const email = document.getElementById('register-email').value;
+    const username = document.getElementById('register-username').value;
+    const password = document.getElementById('register-password').value;
+
+    const response = await fetch('/pop_register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, username, password }),
+    });
+
+    const result = await response.json();
+    alert(result.message);
+
+    if (response.ok) {
+        sessionStorage.setItem('popupShown', 'true');
+        document.getElementById('popup').style.display = 'none';
+    }
 };
 </script>
 
