@@ -100,38 +100,40 @@
         </div>
     </div>
 
-<script>
-    // Function to show the modal
-    function showTermsModal() {
-        document.getElementById("termsModal").style.display = "flex"; // Show the modal
-        document.body.classList.add("modal-active"); // Add blur effect to background
-    }
-
-    // Function to close the modal
-    function closeTermsModal() {
-        document.getElementById("termsModal").style.display = "none"; // Hide the modal
-        document.body.classList.remove("modal-active"); // Remove blur effect
-    }
-
-    // Safely access the checkbox and button elements
-    const checkbox = document.getElementById("agreeCheckbox");
-    const proceedButton = document.getElementById("proceedButton");
-
-    if (checkbox && proceedButton) {
-        // Enable/disable the Proceed button based on checkbox state
-        checkbox.addEventListener("change", function () {
-            proceedButton.disabled = !checkbox.checked; // Enable button only if checkbox is checked
-        });
-
-        // Redirect to the FSC page when "Proceed" is clicked
-        proceedButton.addEventListener("click", function () {
-            window.location.href = "{{ url_for('paymentf') }}"; // Use Flask's url_for for routing
-        });
-    } else {
-        console.error("Checkbox or Proceed button not found in the DOM."); // Log error if elements are missing
-    }
-</script>
-
+    <script>
+        // Function to show the modal
+        function showTermsModal() {
+            document.getElementById("termsModal").style.display = "flex"; // Show the modal
+            document.body.classList.add("modal-active"); // Optional: Add blur effect to background
+        }
+    
+        // Function to close the modal
+        function closeTermsModal() {
+            document.getElementById("termsModal").style.display = "none"; // Hide the modal
+            document.body.classList.remove("modal-active"); // Optional: Remove blur effect
+        }
+    
+        // Ensure the checkbox and Proceed button are accessible
+        const checkbox = document.getElementById("agreeCheckbox");
+        const proceedButton = document.getElementById("proceedButton");
+    
+        if (checkbox && proceedButton) {
+            // Enable/disable the Proceed button based on checkbox state
+            checkbox.addEventListener("change", function () {
+                proceedButton.disabled = !checkbox.checked; // Enable button only if checkbox is checked
+            });
+    
+            // Redirect to the payment page when "Proceed" is clicked
+            proceedButton.addEventListener("click", function () {
+                const price = 3499; // Price of the course
+                window.location.href = "{{ url_for('paymentf') }}?price=" + price; // Redirect with price parameter
+            });
+        } else {
+            console.error("Checkbox or Proceed button not found in the DOM."); // Log error if elements are missing
+        }
+    </script>
+    
+    
     
     <div class="course-features">
         <div class="features-section">

@@ -54,8 +54,11 @@
     </header>
 
     <div class="payment-container">
+        <form method="POST" action="{{ url_for('payment') }}">
+        <input type="hidden" name="course_amount" value="3499">
+        <p>Course Price: ₹<span id="course-price"></span></p>
         <h2>Complete Your Payment Here To Access the Course</h2>
-
+       
         <!-- Payment Method Options -->
         <div class="payment-methods">
             <!-- UPI Option -->
@@ -88,58 +91,50 @@
             <!-- Form for Credit/Debit Card -->
             <div class="form-group" id="cardDetails" style="display: none;">
                 <label for="cardNumber">Card Number</label>
-                <input type="text" class="form-input" id="cardNumber" placeholder="Enter Card Number">
+                <input type="text" class="form-input" id="cardNumber" name="card_number" placeholder="Enter Card Number">
                 <label for="expiryDate">Expiry Date</label>
-                <input type="text" class="form-input" id="expiryDate" placeholder="MM/YY">
+                <input type="text" class="form-input" id="expiryDate" name="expiry_date" placeholder="MM/YY">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-input" id="cvv" placeholder="CVV">
+                <input type="text" class="form-input" id="cvv" name="cvv" placeholder="CVV">
             </div>
 
             <!-- Form for UPI -->
             <div class="form-group" id="upiDetails" style="display: none;">
                 <label for="upiID">Enter UPI ID</label>
-                <input type="text" class="form-input" id="upiID" placeholder="Enter UPI ID">
+                <input type="text" class="form-input" id="upiID" name="upi_id" placeholder="Enter UPI ID">
             </div>
 
             <!-- Form for Net Banking -->
             <div class="form-group" id="netBankingDetails" style="display: none;">
                 <label for="bankName">Bank Name</label>
-                <input type="text" class="form-input" id="bankName" placeholder="Enter Bank Name">
+                <input type="text" class="form-input" id="bankName" name="bank_name" placeholder="Enter Bank Name">
                 <label for="accountNumber">Account Number</label>
-                <input type="text" class="form-input" id="accountNumber" placeholder="Enter Account Number">
+                <input type="text" class="form-input" id="accountNumber" name="account_number" placeholder="Enter Account Number">
             </div>
 
             <!-- Form for Wallet -->
             <div class="form-group" id="walletDetails" style="display: none;">
                 <label for="walletID">Enter Wallet ID</label>
-                <input type="text" class="form-input" id="walletID" placeholder="Enter Wallet ID">
+                <input type="text" class="form-input" id="walletID" name="wallet_id" placeholder="Enter Wallet ID">
             </div>
 
+            <input type="hidden" name="payment_method" id="payment-method">
             <button type="submit" class="form-submit">Proceed to Payment</button>
         </div>
+    </form>
 
         <div class="payment-info">
             <p><strong>Note:</strong> Please ensure your payment information is correct before proceeding.</p>
         </div>
     </div>
+</form>
 
     <script>
-        // Payment Method selection logic
-        document.getElementById("upiOption").addEventListener("click", function () {
-            showPaymentForm('upi');
-        });
-
-        document.getElementById("cardOption").addEventListener("click", function () {
-            showPaymentForm('card');
-        });
-
-        document.getElementById("netBankingOption").addEventListener("click", function () {
-            showPaymentForm('netBanking');
-        });
-
-        document.getElementById("walletOption").addEventListener("click", function () {
-            showPaymentForm('wallet');
-        });
+         // Get price from query parameter and display it
+         const urlParams = new URLSearchParams(window.location.search);
+         const price = urlParams.get('price') || 0;
+         document.getElementById('course-price').textContent = price;
+         document.getElementById('course-price').value = price;
 
 
     // Payment Method selection logic
@@ -238,3 +233,5 @@
         }
     });
 </script>
+</body>
+</html>

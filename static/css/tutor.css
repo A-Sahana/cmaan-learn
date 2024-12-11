@@ -183,7 +183,7 @@ header {
 
 
 .hero {
-    background-image: url('../images/Tutor\ insperational\ background.jpg'); 
+    background-image: url('../images/tutor.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
@@ -193,7 +193,7 @@ header {
     justify-content: center; /* Centers content vertically */
     height: 100vh; /* Full viewport height */
     text-align: center;
-    color: white;
+    color: rgb(44, 89, 179);
     overflow: hidden; /* Prevents overflow issues with the blur */
 }
 
@@ -207,7 +207,7 @@ header {
     background-image: inherit;
     background-size: inherit;
     background-position: inherit;
-    filter: blur(4px); /* Adds the blur effect */
+    filter: blur(5px); /* Adds the blur effect */
     z-index: 1;
     transform: scale(1.1); /* Slightly scales up to hide edge artifacts from blur */
 }

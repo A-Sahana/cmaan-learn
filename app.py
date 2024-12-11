@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash 
 from flask_bcrypt import Bcrypt
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import secrets 
 import MySQLdb.cursors
+import mysql.connector
 import os
 
 
@@ -145,6 +146,43 @@ def profile():
 
     return render_template('profile.html')
 
+
+@app.route('/payment', methods=['GET', 'POST'])
+def payment():
+    if request.method == 'POST':
+        course_amount = request.form['course_amount']
+        payment_method = request.form['payment_method']
+        upi_id = request.form.get('upi_id', '')
+        card_number = request.form.get('card_number', '')
+        expiry_date = request.form.get('expiry_date', '')
+        cvv = request.form.get('cvv', '')
+        bank_name = request.form.get('bank_name', '')
+        account_number = request.form.get('account_number', '')
+        wallet_id = request.form.get('wallet_id', '')
+
+        # Prepare data for storing in the database
+        cursor = mysql.connection.cursor()
+
+        # SQL query to insert payment data into database
+        query = """
+        INSERT INTO payments (course_amount, payment_method, card_number, expiry_date, cvv, upi_id, bank_name, account_number, wallet_id)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        cursor.execute(query, (course_amount, payment_method, card_number, expiry_date, cvv, upi_id, bank_name, account_number, wallet_id))
+
+        # Commit the transaction to the database
+        mysql.connection.commit()
+
+        # Close the cursor and connection
+        cursor.close()
+
+        # Redirect to fsc.html after saving data
+        return redirect(url_for('fsc'))
+
+    return render_template('paymentf.html')
+
+
+
 # Route for the courses page
 @app.route('/courses')
 def courses():
@@ -228,7 +266,7 @@ def submit():
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         ''', (first_name, last_name, email, phone, username, course_interest, referral_goal, comments))
         
-        # Update user's `has_filled_get_started` status
+        # Update user's has_filled_get_started status
         cursor.execute("UPDATE users SET has_filled_get_started = TRUE WHERE email = %s", (email,))
         mysql.connection.commit()
         cursor.close()
@@ -435,4 +473,4 @@ def fsm8():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
