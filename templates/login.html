@@ -16,17 +16,19 @@
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
             <!-- Initially display the login form and hide the register form -->
-            <form id="login" class="input-group" style="display: block;">
-                <input type="text" class="input-field" placeholder="Email" required>
-                <input type="password" class="input-field" placeholder="Password" required>
-                <input type="checkbox" class="check-box"><span>Remember Password</span>
+            <form id="login" class="input-group" style="display: block;" method="POST" action="{{ url_for('login') }}">
+                <input type="hidden" name="action" value="login">
+                <input type="email" class="input-field" placeholder="Email" name="email" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                {# <input type="checkbox" class="check-box"><span>Remember Password</span> #}
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <form id="register" class="input-group" style="display: none;">
-                <input type="text" class="input-field" placeholder="Username" required>
-                <input type="email" class="input-field" placeholder="Email" required>
-                <input type="password" class="input-field" placeholder="Password" required>
-                <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+            <form id="register" class="input-group" style="display: none;" method="POST" action="{{ url_for('login') }}">
+                <input type="hidden" name="action" value="register">
+                <input type="text" class="input-field" placeholder="Username" name="username" required>
+                <input type="email" class="input-field" placeholder="Email" name="email" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+               {# <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span> #}
                 <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>

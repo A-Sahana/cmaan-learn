@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_bcrypt import Bcrypt
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 import secrets 
+import MySQLdb.cursors
+import os
+
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
@@ -18,31 +23,126 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Initialize MySQL
 mysql = MySQL(app)
 
+bcrypt = Bcrypt(app)
+
+
 
 # Route for the home page
 @app.route('/')
 def home():
+    if 'loggedin' in session:
+        return render_template('home.html', username=session['username'])
+    return render_template('home.html')
+
+ 
+@app.route('/logout')
+def logout():
+    # Clear the session
+    session.pop('loggedin', None)
+    session.pop('username', None)
+    session.pop('id', None)
     return render_template('home.html')
 
 
-
-
-# Route for the login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # Handle login logic here
-        # e.g., validate user credentials
-        return redirect(url_for('home'))  # Redirect to home after login
+        action = request.form.get('action')  # Get the 'action' field from the form
+
+        if action == 'register':
+            # Handle Registration
+            username = request.form['username']
+            email = request.form['email']
+            password = request.form['password']
+
+            # Hash the password
+            password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+
+            # Insert data into the database
+            cursor = mysql.connection.cursor()
+            cursor.execute('INSERT INTO login_register (username, email, password_hash) VALUES (%s, %s, %s)',
+                        (username, email, password_hash))
+            mysql.connection.commit()
+
+            # Fetch the newly created user to set up the session
+            cursor.execute('SELECT * FROM login_register WHERE email = %s', [email])
+            user = cursor.fetchone()
+            cursor.close()
+
+            if user:
+                # Set up session
+                session['loggedin'] = True
+                session['id'] = user['id']
+                session['username'] = user['username']
+                flash('Registration successful! You are now logged in.', 'success')
+                return redirect(url_for('home'))
+            else:
+                flash('Registration failed. Please try again.', 'danger')
+                return redirect(url_for('login'))
+
+        elif action == 'login':
+            # Handle Login
+            email = request.form['email']
+            password = request.form['password']
+
+            # Verify user credentials
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM login_register WHERE email = %s', [email])
+            user = cursor.fetchone()
+            cursor.close()
+
+            if user and bcrypt.check_password_hash(user['password_hash'], password):
+                session['loggedin'] = True
+                session['id'] = user['id']
+                session['username'] = user['username']
+                return redirect(url_for('home'))
+            else:
+                flash('Invalid email or password. Please try again.', 'danger')
+                return redirect(url_for('login'))
+
     return render_template('login.html')
 
-# Route for the profile completion page
+
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))  # Ensure user is logged in
+    
     if request.method == 'POST':
-        # Handle profile completion logic here
-        # e.g., save user profile information
-        return redirect(url_for('home'))
+        user_id = session['id']
+        about = request.form['about']
+        job_role = request.form['job_role']
+        university = request.form['university']
+        cgpa = request.form['cgpa']
+        linkedin = request.form['linkedin']
+        location = request.form['location']
+        
+        # Handle file upload for CV
+        cv = request.files['cv']
+        if cv:
+            cv_filename = secure_filename(cv.filename)
+            cv.save(os.path.join('static/uploads/cv', cv_filename))
+        else:
+            cv_filename = None  # Or set to a default value
+        
+        # Insert or update profile information into the database
+        cursor = mysql.connection.cursor()
+        
+        cursor.execute("""
+            INSERT INTO profiles (user_id, about, job_role, university, cgpa, linkedin, location, cv_filename)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE 
+                about = %s, job_role = %s, university = %s, cgpa = %s, linkedin = %s, location = %s, cv_filename = %s
+        """, (user_id, about, job_role, university, cgpa, linkedin, location, cv_filename, 
+              about, job_role, university, cgpa, linkedin, location, cv_filename))
+        
+        mysql.connection.commit()
+        cursor.close()
+
+        flash('Profile completed successfully!', 'success')
+        return redirect(url_for('courses'))  # Redirect to the courses page
+
     return render_template('profile.html')
 
 # Route for the courses page

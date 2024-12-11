@@ -123,6 +123,7 @@ header {
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     font-weight: 600;
+    margin: 15px;
 }
 
 .login-btn:hover {
@@ -784,21 +785,21 @@ p.subtitle {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center; /* Center vertically */
-    padding-left: 90px; /* Add some padding to avoid sticking to the edge */
+    align-items: center;
+    padding-left: 90px;
     color: white;
-    text-align: left; /* Align text to the left */
-    background: none; /* Remove dark overlay */
+    text-align: left;
+    background: none;
   }
   
   .deal .content {
     z-index: 1;
-    max-width: 400px; /* Limit the width of the text content */
+    max-width: 400px;
     color:#2e2e2e
   }
   
   .deal .title {
-    font-size: 5rem; /* Adjust font size */
+    font-size: 5rem;
     margin-bottom: 0.5rem;
     color:#171a39;
   }
@@ -811,14 +812,148 @@ p.subtitle {
   }
   
   .deal .btn {
-    padding: 15px 30px; /* Increased padding for a larger button */
+    padding: 15px 30px;
     background-color: #28a745;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 2rem; /* Increased font size */
+    font-size: 2rem;
 }
 
 .deal .btn:hover {
-    background-color: #1e173a; /* Darker green on hover */
+    background-color: #1e173a;
+}
+
+#image {
+    width: 100%;
+    overflow: hidden;
+}
+
+#image .content img {
+    width: 100%;
+    max-height: 45%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.hero {
+    background-image: url('../images/courses1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 1;
+}
+
+.hero h1,
+.hero p,
+.hero .buttons {
+    position: relative;
+    margin-right: 900px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.popup-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Close button style */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.tabs button {
+    width: 50%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tabs button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #0056b3;
 }

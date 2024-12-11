@@ -37,11 +37,26 @@
         </div>
     </header>
 
+    {% if 'loggedin' in session %}
+    <center><h2>Welcome {{ session['username'] }}!</h2>
+    <p>Here are the courses available:</p></center>
+    <!-- List courses here -->
+    {% else %}
+    <center><h2>Welcome Guest!</h2>
+    <p>Please log in to access the courses.</p></center>
+    {% endif %}
 
-    <section class="deal" id="deal">
+    <main>
+        <section class="hero">
+        </section>
+
+
+    {#<section class="image" id="image">
         <div class="content">
+            <img src="{{ url_for('static', filename='images/courses.jpg') }}" alt="Image">
         </div>
-    </section>
+    </section>#}
+    
 
     <section class="course-category">
         <div class="container">
@@ -118,8 +133,9 @@
             </div>
         </div>
     </section>
+</main>
 
-  
+
  
 </body>
 </html>

@@ -57,7 +57,7 @@
         <!-- Sidebar -->
         <aside class="modules-sidebar">
             <h2>Course Modules</h2>
-            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 1</button>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 1 Syllabus</button>
             <div id="beginnerModules" style="display: none;">
                 <ul>CHAPTER 1:</ul>
                 <ul>Introduction to HTML</ul>
@@ -90,19 +90,22 @@
             </div>
             
             <div id="assessment-btn-container" style="display: none; text-align: center; margin-top: 20px;">
-                <a href="fsca1.html">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSem7AW1IyI5SyafRsIUGisRvILK4gRVQf9eHlDSixOqTjkkgQ/viewform" target="_blank">
                     <button id="take-assessment-btn" class="assessment-btn">Take Assessment</button>
                 </a>
             </div>
+        
         </div>
     </section>
 </main>
 
 <script>
     
+
     const videos = [
         "{{ url_for('static', filename='images/vdo 1.mp4') }}", 
-        "{{ url_for('static', filename='images/vdo 2.mp4') }}"
+        "{{ url_for('static', filename='images/vdo 2.mp4') }}",
+        "{{ url_for('static', filename='images/vdo 3.mp4') }}"
     ];
 
     let currentVideoIndex = 0;
@@ -111,60 +114,36 @@
     const videoSource = document.getElementById('video-source');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const assessmentBtnContainer = document.getElementById('assessment-btn-container');
 
-    // Function to handle video change
     function changeVideo(direction) {
         if (direction === 'next') {
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-        } else if (direction === 'prev') {
-            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        } else if (direction === 'prev' && currentVideoIndex > 0) {
+            currentVideoIndex = (currentVideoIndex - 1) % videos.length;
         }
 
-        // Update the video source and load the new video
         videoSource.src = videos[currentVideoIndex];
         videoElement.load();
         videoElement.play();
-
-        // Toggle visibility of "Take Assessment" button
-        if (currentVideoIndex === videos.length - 1) {
-            assessmentBtnContainer.style.display = 'block';
-        } else {
-            assessmentBtnContainer.style.display = 'none';
-        }
-
-
         updateButtonStates();
     }
 
-
     function updateButtonStates() {
-        if (currentVideoIndex === 0) {
-            prevBtn.disabled = true;
-        } else {
-            prevBtn.disabled = false;
-        }
-
-        if (currentVideoIndex === videos.length - 1) {
-            nextBtn.disabled = true;
-        } else {
-            nextBtn.disabled = false;
-        }
+        prevBtn.disabled = currentVideoIndex === 0;
+        nextBtn.disabled = currentVideoIndex === videos.length - 1;
     }
 
-    // Initially hide the "Take Assessment" button
-    assessmentBtnContainer.style.display = 'none';
-    
-
-    videoElement.width = 640;
-    videoElement.height = 360;
-
-    videoElement.addEventListener('ended', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        videoSource.src = videos[currentVideoIndex];
+        videoElement.load();
+        videoElement.play();
         updateButtonStates();
     });
 
+    videoElement.addEventListener('ended', updateButtonStates);
 
-    updateButtonStates();
+
+
 </script>
 
     
