@@ -37,14 +37,7 @@
         </div>
     </header>
 
-    {% if 'loggedin' in session %}
-    <center><h2>Welcome {{ session['username'] }}!</h2>
-    <p>Here are the courses available:</p></center>
-    <!-- List courses here -->
-    {% else %}
-    <center><h2>Welcome Guest!</h2>
-    <p>Please log in to access the courses.</p></center>
-    {% endif %}
+
 
     <main>
         <section class="hero">

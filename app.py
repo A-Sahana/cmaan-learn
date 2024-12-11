@@ -113,10 +113,6 @@ def pop_login():
         user = cursor.fetchone()
 
         if user and bcrypt.check_password_hash(user['password_hash'], password):
-            
-            session['loggedin'] = True
-            session['id'] = user['id']
-            session['username'] = user['username']
             return jsonify({'message': 'Login successful'}), 200
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
@@ -142,9 +138,6 @@ def pop_register():
         cursor.execute('SELECT * FROM login_register WHERE email = %s', [email])
         user = cursor.fetchone()
         if user:
-            session['loggedin'] = True
-            session['id'] = user['id']
-            session['username'] = user['username']
             return jsonify({'message': 'Registration successful'}), 201
         else:
             return jsonify({'message': 'Registration failed. Please try again.'}), 500
