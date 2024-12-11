@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fsm.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    <li class="search-container">
+                        <input type="text" placeholder="What do you want to learn?" class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </li>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="modules-sidebar">
+            <h2>Course Modules</h2>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 6 Syllabus</button>
+            <div id="beginnerModules" style="display: none;">
+                <ul>
+                    <li>Introduction to JS</li>
+                    <li>JS Syntax</li>
+                    <li>JS Values and Variables</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <section class="video-section">
+                <h2>Full-Stack Web Development</h2>
+                <div class="video-container" id="video-container">
+                    <video id="tutorial-video" class="youtube-video" width="640" height="360" controls>
+                        <source id="video-source" src="{{ url_for('static', filename='images/vdo 6.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-controls">
+                        <button id="prev-btn" disabled>Previous</button>
+                        <button id="next-btn" disabled>Next</button>
+                    </div>
+                    <div id="assessment-btn-container" style="display: block; text-align: center; margin-top: 20px;">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5G2QKvNjqJIr6MJZW1Mtmf8il75X4ahDnHfkOJEnSNcjWbg/viewform" target="_blank">
+                            <button id="take-assessment-btn" class="assessment-btn">Take Assessment</button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const videos = ["{{ url_for('static', filename='images/vdo 6.mp4') }}"];
+
+        const videoElement = document.getElementById('tutorial-video');
+        const videoSource = document.getElementById('video-source');
+        const assessmentBtnContainer = document.getElementById('assessment-btn-container');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (videos.length === 1) {
+                assessmentBtnContainer.style.display = 'block';
+            }
+        });
+
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.style.display = section.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>

@@ -156,7 +156,7 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+
         <main class="main-content">
             <img src="{{ url_for('static', filename='images/fsc.jpg') }}" alt="Course Banner" class="banner-image">
 
@@ -187,7 +187,7 @@
                 </ul>
             </section>
 
-            <!-- Certificate Modal (Initially Hidden) -->
+
             <div id="certificateModal" class="modal" style="display: none;">
                 <div class="modal-content">
                     <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -211,26 +211,25 @@
             section.style.display = section.style.display === "none" ? "block" : "none";
         }
 
-        // Function to toggle visibility of the certificate modal
         function toggleCertificate() {
             var certificateModal = document.getElementById("certificateModal");
             certificateModal.style.display = certificateModal.style.display === "none" ? "flex" : "none";
         }
 
-        // Close the certificate modal
+
         function closeModal() {
             document.getElementById("certificateModal").style.display = "none";
         }
 
-        // Unlock the certificate button after completing all modules
+
         function unlockCertificate() {
             document.getElementById("certificateBtn").disabled = false;
             document.getElementById("certificateBtn").style.backgroundColor = "#66aac0";
         }
 
-        // Call this function once the user completes all modules
         unlockCertificate();
     </script>
+
 
 
 </body>
