@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan Learn Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/paymentf.css') }}">
+</head>
+<body>
+    
+    <div class="payment-container">
+        <input type="hidden" name="course_amount" value="{{ course_amount }}">
+        <p>Course Price: ₹<span id="course-price"></span></p>
+        <h1>Payment Gateway</h1>
+        <form id="payment-form" method="POST" action="/payment">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="India">India</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="state">State / Union Territory</label>
+            <select id="state" name="state">
+                <option value="Karnataka">Karnataka</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-method">
+                <input type="radio" id="netBanking" name="payment-method" value="Net Banking">
+                <img src="{{ url_for('static', filename='images/netbank.png') }}" alt="Net Banking" width="30">
+                <label for="netBanking">Net Banking</label>
+            </div>
+            <div class="payment-description">
+                In order to complete your transaction, we will transfer you over to a secure payment server.
+                <select id="select-bank">
+                    <option value="">Select your bank</option>
+                    <option value="Bank1">State Bank of India</option>
+                    <option value="Bank2">HDFC Bank</option>
+                    <option value="Bank3">Canara Bank</option>
+                    <option value="Bank4">Bank of India</option>
+                    <option value="Bank5">Bank of Maharashtra</option>
+
+                </select>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="creditCard" name="payment-method" value="Credit/Debit Card">
+                <img src="{{ url_for('static', filename='images/card.png') }}" alt="Credit/Debit Card" width="30">
+                <label for="creditCard">Credit/Debit Card</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="upi" name="payment-method" value="UPI">
+                <img src="{{ url_for('static', filename='images/upi.jpg') }}" alt="UPI" width="30">
+                <label for="upi">UPI</label>
+            </div>
+
+            <div class="payment-method">
+                <input type="radio" id="wallets" name="payment-method" value="Mobile Wallets">
+                <img src="{{ url_for('static', filename='images/wallet.png') }}" alt="Mobile Wallets" width="30">
+                <label for="wallets">Mobile Wallets</label>
+            </div>
+
+            <button type="submit" class="proceed-btn">Proceed</button>
+        </form>
+    </div>
+
+    <script>
+
+         // Get price from query parameter and display it
+         const urlParams = new URLSearchParams(window.location.search);
+         const price = urlParams.get('price') || 0;
+         document.getElementById('course-price').textContent = price;
+         document.getElementById('course-price').value = price;
+
+        function toggleCardForm(show) {
+            const cardDetails = document.getElementById('card-details');
+            cardDetails.style.display = show ? 'block' : 'none';
+        }
+
+        function proceedPayment() {
+            const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+            const selectedBank = document.getElementById('select-bank').value;
+    
+            if (!selectedPayment) {
+                alert('Please select a payment method.');
+                return;
+            }
+    
+            if (selectedPayment.value === 'Net Banking' && selectedBank === "") {
+                alert('Please select a bank for net banking.');
+                return;
+            }
+    
+            alert(`Proceeding with ${selectedPayment.value} payment.`);
+            
+            window.location.href = "confirmation.html"; 
+        }
+
+        
+    </script>
+    
+</body>
+</html>
