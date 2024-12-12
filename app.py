@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash 
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 from flask_bcrypt import Bcrypt
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -31,8 +31,6 @@ bcrypt = Bcrypt(app)
 # Route for the home page
 @app.route('/')
 def home():
-    if 'loggedin' in session:
-        return render_template('home.html', username=session['username'])
     return render_template('home.html')
 
  
@@ -103,7 +101,52 @@ def login():
 
     return render_template('login.html')
 
+@app.route('/pop_login', methods=['POST'])
+def pop_login():
+    data = request.json
+    email = data['email']
+    password = data['password']
 
+    try:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT password_hash FROM login_register WHERE email=%s", (email,))
+        user = cursor.fetchone()
+
+        if user and bcrypt.check_password_hash(user['password_hash'], password):
+            return jsonify({'message': 'Login successful'}), 200
+        else:
+            return jsonify({'message': 'Invalid email or password'}), 401
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+    finally:
+        cursor.close()
+
+@app.route('/pop_register', methods=['POST'])
+def pop_register():
+    data = request.json
+    email = data['email']
+    username = data['username']
+    password = bcrypt.generate_password_hash(data['password']).decode('utf-8')  # Hash the password with bcrypt
+
+    try:
+        cursor = mysql.connection.cursor()
+        query = "INSERT INTO login_register (email, username, password_hash) VALUES (%s, %s, %s)"
+        cursor.execute(query, (email, username, password))
+        mysql.connection.commit()
+
+        # Fetch the newly created user
+        cursor.execute('SELECT * FROM login_register WHERE email = %s', [email])
+        user = cursor.fetchone()
+        if user:
+            return jsonify({'message': 'Registration successful'}), 201
+        else:
+            return jsonify({'message': 'Registration failed. Please try again.'}), 500
+    except mysql.connector.errors.IntegrityError:
+        return jsonify({'message': 'Email already exists'}), 409
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+    finally:
+        cursor.close()
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
@@ -353,19 +396,7 @@ def generate_referral_link():
 
 @app.route('/earnings')
 def earnings():
-    username = session.get('username')  
-    
-    if not username:
-        flash("Please log in to view your earnings.")
-        return redirect(url_for('login'))
-    
-    cursor = mysql.connection.cursor()
-    cursor.execute('SELECT total_earnings FROM earnings WHERE username = %s', (username,))
-    earnings_data = cursor.fetchone()
-    cursor.close()
-    
-    total_earnings = earnings_data['total_earnings'] if earnings_data else 0
-    return render_template('earnings.html', total_earnings=total_earnings)
+    return render_template('earnings.html')
 
 
 
