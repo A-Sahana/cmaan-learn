@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="assessment-container">
+            <h2>Beginner Level Assessment</h2><br>
+            <form id="assessment-form">
+                <!-- Question 1 -->
+                <div class="question">
+                    <p>1. What does HTML stand for?</p>
+                    <input type="radio" name="question-1" value="Hyper Trainer Markup Language" id="q1a1"> <label for="q1a1">Hyper Trainer Markup Language</label><br>
+                    <input type="radio" name="question-1" value="Hyper Text Markup Language" id="q1a2"> <label for="q1a2">Hyper Text Markup Language</label><br>
+                    <input type="radio" name="question-1" value="Home Tool Markup Language" id="q1a3"> <label for="q1a3">Home Tool Markup Language</label><br>
+                    <input type="radio" name="question-1" value="Hyper Text Machine Language" id="q1a4"> <label for="q1a4">Hyper Text Machine Language</label><br>
+                </div>
+    
+                <!-- Question 2 -->
+                <div class="question">
+                    <p>2. Which tag is used to create a hyperlink in HTML?</p>
+                    <input type="radio" name="question-2" value="link" id="q2a1"> <label for="q2a1">link</label><br>
+                    <input type="radio" name="question-2" value="a" id="q2a2"> <label for="q2a2">a</label><br>
+                    <input type="radio" name="question-2" value="Advanced" id="q2a3"> <label for="q2a3">Advanced</label><br>
+                    <input type="radio" name="question-2" value="Expert" id="q2a4"> <label for="q2a4">Expert</label><br>
+                </div>
+    
+                <!-- Question 3 -->
+                <div class="question">
+                    <p>3. What is the correct way to add a comment in HTML?</p>
+                    <input type="radio" name="question-3" value="// This is a comment" id="q3a1"> <label for="q3a1">// This is a comment</label><br>
+                    <input type="radio" name="question-3" value="/* This is a comment */" id="q3a2"> <label for="q3a2">/* This is a comment */</label><br>
+                    <input type="radio" name="question-3" value="!-- This is a comment --" id="q3a3"> <label for="q3a3">"!-- This is a comment --"</label><br>
+                    <input type="radio" name="question-3" value="# This is a comment" id="q3a4"> <label for="q3a4"># This is a comment</label><br>
+                </div>
+
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>4. Which attribute is used to define inline styles?</p>
+                    <input type="radio" name="question-4" value="class" id="q4a1"> <label for="q4a1">class</label><br>
+                    <input type="radio" name="question-4" value="style" id="q4a2"> <label for="q4a2">style</label><br>
+                    <input type="radio" name="question-4" value="id" id="q4a3"> <label for="q4a3">id</label><br>
+                    <input type="radio" name="question-4" value="src" id="q4a4"> <label for="q4a4">src</label><br>
+                </div>
+
+                <div class="question">
+                    <p>5. What is the default heading size for h1?</p>
+                    <input type="radio" name="question-5" value="10px" id="q5a1"> <label for="q5a1">10px</label><br>
+                    <input type="radio" name="question-5" value="24px" id="q5a2"> <label for="q5a2">24px</label><br>
+                    <input type="radio" name="question-5" value="Largest heading size" id="q5a3"> <label for="q5a3">Largest heading size</label><br>
+                    <input type="radio" name="question-5" value="Smallest heading size" id="q5a4"> <label for="q5a4">Smallest heading size</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>6. What does CSS stand for?</p>
+                    <input type="radio" name="question-6" value="Creative Style Sheets" id="q6a1"> <label for="q6a1">Creative Style Sheets</label><br>
+                    <input type="radio" name="question-6" value="Cascading Style Sheets" id="q6a2"> <label for="q6a2">Cascading Style Sheets</label><br>
+                    <input type="radio" name="question-6" value="Computer Style Sheets" id="q6a3"> <label for="q6a3">Computer Style Sheets</label><br>
+                    <input type="radio" name="question-6" value="Colorful Style Sheets" id="q6a4"> <label for="q6a4">Colorful Style Sheets</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>7. Which property is used to change the text color of an element?</p>
+                    <input type="radio" name="question-7" value="font-color" id="q7a1"> <label for="q7a1">font-color</label><br>
+                    <input type="radio" name="question-7" value="color" id="q7a2"> <label for="q7a2">color</label><br>
+                    <input type="radio" name="question-7" value="text-color" id="q7a3"> <label for="q7a3">text-color</label><br>
+                    <input type="radio" name="question-7" value="style-color" id="q7a4"> <label for="q7a4">style-color</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>8. What does var keyword do in JavaScript? </p>
+                    <input type="radio" name="question-8" value="Declares a variable" id="q8a1"> <label for="q8a1">Declares a variable</label><br>
+                    <input type="radio" name="question-8" value="Declares a function" id="q8a2"> <label for="q8a2">Declares a function</label><br>
+                    <input type="radio" name="question-8" value="Declares a constant" id="q8a3"> <label for="q8a3">Declares a constant</label><br>
+                    <input type="radio" name="question-8" value="Declares a loop" id="q8a4"> <label for="q8a4">Declares a loop</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>9. Which event occurs when a user clicks on an HTML element? </p>
+                    <input type="radio" name="question-9" value="onmouseover" id="q9a1"> <label for="q9a1">onmouseover</label><br>
+                    <input type="radio" name="question-9" value="onchange" id="q9a2"> <label for="q9a2">onchange</label><br>
+                    <input type="radio" name="question-9" value="onclick" id="q9a3"> <label for="q9a3">onclick</label><br>
+                    <input type="radio" name="question-9" value="onhover" id="q9a4"> <label for="q9a4">onhover</label><br>
+                </div>
+    
+
+                <div class="question">
+                    <p>10. How do you create a function in JavaScript? </p>
+                    <input type="radio" name="question-10" value="function myFunction {}" id="q10a1"> <label for="q10a1">function myFunction {}</label><br>
+                    <input type="radio" name="question-10" value="function: myFunction {}" id="q10a2"> <label for="q10a2">function: myFunction {}</label><br>
+                    <input type="radio" name="question-10" value="function myFunction() {}" id="q10a3"> <label for="q10a3">function myFunction() {}</label><br>
+                    <input type="radio" name="question-10" value="def myFunction() {}" id="q10a4"> <label for="q10a4">def myFunction() {}</label><br>
+                </div>
+            
+    
+                <button type="button" onclick="submitAssessment()">Submit</button>
+            </form>
+    
+            <div id="score-display" style="display: none;">
+                <h3>Your score is: <span id="score"></span>/10</h3>
+            </div>
+            <br>
+
+            <div>
+                <button id="continue-to-intermediate" onclick="window.location.href='fsm4'" disabled>Go to Intermediate Level</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Correct answers for validation
+        const correctAnswers = {
+            1: "Hyper Text Markup Language",
+            2: "a",
+            3: "!-- This is a comment --",
+            4: "style",
+            5: "Largest heading size",
+            6: "Cascading Style Sheets",
+            7: "text-color",
+            8: "Declares a variable",
+            9: "onclick",
+            10: "function myFunction() {}"
+        };
+    
+        // Function to calculate score
+        function submitAssessment() {
+            let score = 0;
+           
+            for (let i = 1; i <= 10; i++) {
+                const selectedAnswer = document.querySelector(`input[name="question-${i}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+    
+            // Display the score
+            document.getElementById('score').textContent = score;
+            document.getElementById('score-display').style.display = 'block';
+    
+            
+            if (score >= 4) {
+                document.getElementById('continue-to-intermediate').disabled = false;
+            } else {
+                document.getElementById('continue-to-intermediate').disabled = true;
+    
+                
+                alert("Your scores are below average. Please retake the quiz to complete the beginner level.");
+                
+                
+                const retakeBtn = document.createElement("button");
+                retakeBtn.textContent = "Retake Quiz";
+                retakeBtn.onclick = function() {
+                    
+                    location.reload();
+                };
+    
+               
+                document.getElementById('score-display').appendChild(retakeBtn);
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

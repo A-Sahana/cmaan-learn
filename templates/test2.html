@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="assessment-container">
+            <h2>Intermediate Level Assessment</h2><br>
+            <form id="assessment-form">
+                <!-- Question 1 -->
+                <div class="question">
+                    <p>1. What is the purpose of the meta name="viewport" tag in responsive design?</p>
+                    <input type="radio" name="question-1" value="To include a stylesheet" id="q1a1"> <label for="q1a1">To include a stylesheet</label><br>
+                    <input type="radio" name="question-1" value="To set the viewport's width and scale for mobile devices" id="q1a2"> <label for="q1a2">To set the viewport's width and scale for mobile devices</label><br>
+                    <input type="radio" name="question-1" value="To add meta keywords for SEO" id="q1a3"> <label for="q1a3">To add meta keywords for SEO</label><br>
+                    <input type="radio" name="question-1" value="To define breakpoints for the layout" id="q1a4"> <label for="q1a4"> To define breakpoints for the layout</label><br>
+                </div>
+    
+                <!-- Question 2 -->
+                <div class="question">
+                    <p>2. Which CSS unit is most suitable for responsive design?</p>
+                    <input type="radio" name="question-2" value="px" id="q2a1"> <label for="q2a1">px</label><br>
+                    <input type="radio" name="question-2" value="em" id="q2a2"> <label for="q2a2">em</label><br>
+                    <input type="radio" name="question-2" value="%" id="q2a3"> <label for="q2a3">%</label><br>
+                    <input type="radio" name="question-2" value="rem" id="q2a4"> <label for="q2a4">rem</label><br>
+                </div>
+    
+                <!-- Question 3 -->
+                <div class="question">
+                    <p>3. What does the term "media query" in CSS refer to?</p>
+                    <input type="radio" name="question-3" value="A way to query APIs for media resources" id="q3a1"> <label for="q3a1">A way to query APIs for media resources</label><br>
+                    <input type="radio" name="question-3" value="A CSS technique to apply styles based on device characteristics" id="q3a2"> <label for="q3a2">A CSS technique to apply styles based on device characteristics</label><br>
+                    <input type="radio" name="question-3" value="A method for adding responsive images" id="q3a3"> <label for="q3a3">A method for adding responsive images</label><br>
+                    <input type="radio" name="question-3" value="A technique to import external stylesheets" id="q3a4"> <label for="q3a4">A technique to import external stylesheets</label><br>
+                </div>
+
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>4. Which of the following is a valid media query?</p>
+                    <input type="radio" name="question-4" value="@media (max-width 768px) {}" id="q4a1"> <label for="q4a1">@media (max-width 768px) {}</label><br>
+                    <input type="radio" name="question-4" value="@media screen and (max-width: 768px) {}" id="q4a2"> <label for="q4a2">@media screen and (max-width: 768px) {}</label><br>
+                    <input type="radio" name="question-4" value="media screen {}" id="q4a3"> <label for="q4a3">media screen {}</label><br>
+                    <input type="radio" name="question-4" value="@responsive (max-width: 768px) {}" id="q4a4"> <label for="q4a4">@responsive (max-width: 768px) {}</label><br>
+                </div>
+
+                <div class="question">
+                    <p>5. What does the flex-wrap property do in a flexbox layout?</p>
+                    <input type="radio" name="question-5" value="Forces all items into a single row" id="q5a1"> <label for="q5a1">Forces all items into a single row</label><br>
+                    <input type="radio" name="question-5" value="Wraps flex items onto multiple rows" id="q5a2"> <label for="q5a2">Wraps flex items onto multiple rows</label><br>
+                    <input type="radio" name="question-5" value="Aligns items to the center" id="q5a3"> <label for="q5a3">Aligns items to the center</label><br>
+                    <input type="radio" name="question-5" value="Adds padding to flex items" id="q5a4"> <label for="q5a4">Adds padding to flex items</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>6. What does the z-index property control?</p>
+                    <input type="radio" name="question-6" value="The stacking order of elements" id="q6a1"> <label for="q6a1">The stacking order of elements</label><br>
+                    <input type="radio" name="question-6" value="The horizontal alignment of text" id="q6a2"> <label for="q6a2">The horizontal alignment of text</label><br>
+                    <input type="radio" name="question-6" value="The opacity of an element" id="q6a3"> <label for="q6a3">The opacity of an element</label><br>
+                    <input type="radio" name="question-6" value="The visibility of an element" id="q6a4"> <label for="q6a4">The visibility of an element</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>7. Which property is used to apply a shadow to a box?</p>
+                    <input type="radio" name="question-7" value="box-shadow" id="q7a1"> <label for="q7a1">box-shadow</label><br>
+                    <input type="radio" name="question-7" value="shadow-box" id="q7a2"> <label for="q7a2">shadow-box</label><br>
+                    <input type="radio" name="question-7" value="shadow" id="q7a3"> <label for="q7a3">shadow</label><br>
+                    <input type="radio" name="question-7" value="element-shadow" id="q7a4"> <label for="q7a4">element-shadow</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>8. What does the position: sticky; property do? </p>
+                    <input type="radio" name="question-8" value="Keeps an element fixed at a position relative to the viewport" id="q8a1"> <label for="q8a1">Keeps an element fixed at a position relative to the viewport</label><br>
+                    <input type="radio" name="question-8" value="Makes an element behave like a relative element" id="q8a2"> <label for="q8a2">Makes an element behave like a relative element</label><br>
+                    <input type="radio" name="question-8" value="Keeps an element fixed relative to its nearest scrollable ancestor" id="q8a3"> <label for="q8a3">Keeps an element fixed relative to its nearest scrollable ancestor</label><br>
+                    <input type="radio" name="question-8" value="Allows an element to overlap its parent container" id="q8a4"> <label for="q8a4">Allows an element to overlap its parent container</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>9. How can you apply multiple background images to an element? </p>
+                    <input type="radio" name="question-9" value="Using the background-repeat property" id="q9a1"> <label for="q9a1">Using the background-repeat property</label><br>
+                    <input type="radio" name="question-9" value="Using the background shorthand property with comma-separated URLs" id="q9a2"> <label for="q9a2">Using the background shorthand property with comma-separated URLs</label><br>
+                    <input type="radio" name="question-9" value="Applying multiple background-image properties" id="q9a3"> <label for="q9a3">Applying multiple background-image properties</label><br>
+                    <input type="radio" name="question-9" value="Using the background-layer property" id="q9a4"> <label for="q9a4">Using the background-layer property</label><br>
+                </div>
+    
+
+                <div class="question">
+                    <p>10. Which CSS property creates a smooth transition between property changes? </p>
+                    <input type="radio" name="question-10" value="animation" id="q10a1"> <label for="q10a1">animation</label><br>
+                    <input type="radio" name="question-10" value="transform" id="q10a2"> <label for="q10a2">transform</label><br>
+                    <input type="radio" name="question-10" value="transition" id="q10a3"> <label for="q10a3">transition</label><br>
+                    <input type="radio" name="question-10" value="keyframe" id="q10a4"> <label for="q10a4">keyframe</label><br>
+                </div>
+            
+    
+                <button type="button" onclick="submitAssessment()">Submit</button>
+            </form>
+    
+            <div id="score-display" style="display: none;">
+                <h3>Your score is: <span id="score"></span>/10</h3>
+            </div>
+            <br>
+
+            <div>
+                <button id="continue-to-advance" onclick="window.location.href='fsm7'" disabled>Go to Advanced Level</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Correct answers for validation
+        const correctAnswers = {
+            1: "To set the viewport's width and scale for mobile devices",
+            2: "%",
+            3: "A CSS technique to apply styles based on device characteristics",
+            4: "@media screen and (max-width: 768px) {}",
+            5: "Wraps flex items onto multiple rows",
+            6: "The stacking order of elements",
+            7: "box-shadow",
+            8: "Keeps an element fixed relative to its nearest scrollable ancestor",
+            9: "Using the background shorthand property with comma-separated URLs",
+            10: "transition"
+        };
+    
+        // Function to calculate score
+        function submitAssessment() {
+            let score = 0;
+           
+            for (let i = 1; i <= 10; i++) {
+                const selectedAnswer = document.querySelector(`input[name="question-${i}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+    
+            // Display the score
+            document.getElementById('score').textContent = score;
+            document.getElementById('score-display').style.display = 'block';
+    
+            
+            if (score >= 4) {
+                document.getElementById('continue-to-advance').disabled = false;
+            } else {
+                document.getElementById('continue-to-advance').disabled = true;
+    
+                
+                alert("Your scores are below average. Please retake the quiz to complete the intermediate level.");
+                
+                
+                const retakeBtn = document.createElement("button");
+                retakeBtn.textContent = "Retake Quiz";
+                retakeBtn.onclick = function() {
+                    
+                    location.reload();
+                };
+    
+               
+                document.getElementById('score-display').appendChild(retakeBtn);
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
