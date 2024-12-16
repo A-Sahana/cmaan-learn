@@ -150,8 +150,8 @@ def pop_register():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    if 'loggedin' not in session:
-        return redirect(url_for('login'))  # Ensure user is logged in
+    #if 'loggedin' not in session:#}
+        #return redirect(url_for('login'))#}
     
     if request.method == 'POST':
         user_id = session['id']
