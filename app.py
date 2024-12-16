@@ -501,7 +501,16 @@ def fsm7():
 def fsm8():
     return render_template('fsm8.html')
 
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
+@app.route('/test2')
+def test2():
+    return render_template('test2.html')
 
+@app.route('/test3')
+def test3():
+    return render_template('test3.html')
 if __name__ == '__main__':
     app.run(debug=True) 

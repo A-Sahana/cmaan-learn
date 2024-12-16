@@ -54,12 +54,11 @@
         <!-- Sidebar -->
         <aside class="modules-sidebar">
             <h2>Course Modules</h2>
-            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 6 Syllabus</button>
+            <button class="dropdown-btn" onclick="toggleSection('beginnerModules')">Module 7 Syllabus</button>
             <div id="beginnerModules" style="display: none;">
                 <ul>
-                    <li>Introduction to JS</li>
-                    <li>JS Syntax</li>
-                    <li>JS Values and Variables</li>
+                    <li></li>
+                    
                 </ul>
             </div>
         </aside>
@@ -77,8 +76,10 @@
                         <button id="next-btn" disabled>Next</button>
                     </div>
                     <div id="assessment-btn-container" style="display: block; text-align: center; margin-top: 20px;">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5G2QKvNjqJIr6MJZW1Mtmf8il75X4ahDnHfkOJEnSNcjWbg/viewform" target="_blank">
-                            <button id="take-assessment-btn" class="assessment-btn">Take Assessment</button>
+                        <a href="{{ url_for('test3') }}">
+                            <button id="take-assessment-btn" class="assessment-btn">
+                                Take Assessment
+                            </button>
                         </a>
                     </div>
                 </div>

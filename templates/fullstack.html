@@ -101,35 +101,35 @@
     </div>
 
     <script>
-        // Function to show the modal
+        
         function showTermsModal() {
-            document.getElementById("termsModal").style.display = "flex"; // Show the modal
-            document.body.classList.add("modal-active"); // Optional: Add blur effect to background
+            document.getElementById("termsModal").style.display = "flex";
+            document.body.classList.add("modal-active");
         }
     
-        // Function to close the modal
+        
         function closeTermsModal() {
-            document.getElementById("termsModal").style.display = "none"; // Hide the modal
-            document.body.classList.remove("modal-active"); // Optional: Remove blur effect
+            document.getElementById("termsModal").style.display = "none";
+            document.body.classList.remove("modal-active");
         }
     
-        // Ensure the checkbox and Proceed button are accessible
+  
         const checkbox = document.getElementById("agreeCheckbox");
         const proceedButton = document.getElementById("proceedButton");
     
         if (checkbox && proceedButton) {
-            // Enable/disable the Proceed button based on checkbox state
+
             checkbox.addEventListener("change", function () {
-                proceedButton.disabled = !checkbox.checked; // Enable button only if checkbox is checked
+                proceedButton.disabled = !checkbox.checked;
             });
     
-            // Redirect to the payment page when "Proceed" is clicked
+  
             proceedButton.addEventListener("click", function () {
-                const price = 3499; // Price of the course
-                window.location.href = "{{ url_for('paymentf') }}?price=" + price; // Redirect with price parameter
+                const price = 3499; 
+                window.location.href = "{{ url_for('paymentf') }}?price=" + price;
             });
         } else {
-            console.error("Checkbox or Proceed button not found in the DOM."); // Log error if elements are missing
+            console.error("Checkbox or Proceed button not found in the DOM.");
         }
     </script>
     

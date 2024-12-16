@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmaan.learn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Cmaan.learn" />
+                <span class="logo-text">Learn</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="{{ url_for('courses') }}" class="dropbtn">All Courses</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('fullstack') }}">Full Stack Development</a>
+                            <a href="{{ url_for('backend') }}">Backend Development</a>
+                            <a href="{{ url_for('graphics') }}">Graphics Designing</a>
+                            <a href="{{ url_for('android') }}">Android Development</a>
+                            <a href="{{ url_for('automation') }}">Automation Testing</a>
+                            <a href="{{ url_for('ios') }}">IOS Development</a>
+                            <a href="{{ url_for('cloud') }}">Cloud Engineer</a>
+                            <a href="{{ url_for('sales') }}">Sales & Marketing</a>
+                            <a href="{{ url_for('telecalling') }}">Tele-Calling</a>
+                            <a href="{{ url_for('hr') }}">HR Courses</a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('bussiness') }}">Cmaan Learn Business</a></li>
+                    <li><a href="{{ url_for('teach') }}">Become Tutor</a></li>
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="{{ url_for('login') }}">
+                    <button class="login-btn">Log In</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="assessment-container">
+            <h2>Advanced Level Assessment</h2><br>
+            <form id="assessment-form">
+                <!-- Question 1 -->
+                <div class="question">
+                    <p>1. What is the difference between let and var in JavaScript?</p>
+                    <input type="radio" name="question-1" value="let is block-scoped, while var is function-scoped" id="q1a1"> <label for="q1a1">let is block-scoped, while var is function-scoped</label><br>
+                    <input type="radio" name="question-1" value="var is block-scoped, while let is function-scoped" id="q1a2"> <label for="q1a2">var is block-scoped, while let is function-scoped</label><br>
+                    <input type="radio" name="question-1" value="Both are block-scoped" id="q1a3"> <label for="q1a3">Both are block-scoped</label><br>
+                    <input type="radio" name="question-1" value="Both are function-scoped" id="q1a4"> <label for="q1a4">Both are function-scoped</label><br>
+                </div>
+    
+                <!-- Question 2 -->
+                <div class="question">
+                    <p>2. Which method is used to convert a JSON object into a string?</p>
+                    <input type="radio" name="question-2" value="JSON.stringify()" id="q2a1"> <label for="q2a1">JSON.stringify()</label><br>
+                    <input type="radio" name="question-2" value="JSON.parse()" id="q2a2"> <label for="q2a2">JSON.parse()</label><br>
+                    <input type="radio" name="question-2" value="JSON.encode()" id="q2a3"> <label for="q2a3">JSON.encode()</label><br>
+                    <input type="radio" name="question-2" value="JSON.convert()" id="q2a4"> <label for="q2a4">JSON.convert()</label><br>
+                </div>
+    
+                <!-- Question 3 -->
+                <div class="question">
+                    <p>3. What is a closure in JavaScript?</p>
+                    <input type="radio" name="question-3" value="A function that returns another function" id="q3a1"> <label for="q3a1">A function that returns another function</label><br>
+                    <input type="radio" name="question-3" value="A function that has access to its parent scope, even after the parent function has closed" id="q3a2"> <label for="q3a2">A function that has access to its parent scope, even after the parent function has closed</label><br>
+                    <input type="radio" name="question-3" value="A private variable within a function" id="q3a3"> <label for="q3a3">A private variable within a function</label><br>
+                    <input type="radio" name="question-3" value="A way to loop through arrays" id="q3a4"> <label for="q3a4">A way to loop through arrays</label><br>
+                </div>
+
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>4. How do you define a JavaScript class?</p>
+                    <input type="radio" name="question-4" value="class MyClass {}" id="q4a1"> <label for="q4a1">class MyClass {}</label><br>
+                    <input type="radio" name="question-4" value="function MyClass() {}" id="q4a2"> <label for="q4a2"></label>function MyClass() {}</label><br>
+                    <input type="radio" name="question-4" value="create MyClass {}" id="q4a3"> <label for="q4a3">create MyClass {}</label><br>
+                    <input type="radio" name="question-4" value="define class MyClass {}" id="q4a4"> <label for="q4a4">define class MyClass {}</label><br>
+                </div>
+
+                <div class="question">
+                    <p>5. What is the purpose of async and await in JavaScript?</p>
+                    <input type="radio" name="question-5" value="To handle CSS animations" id="q5a1"> <label for="q5a1">To handle CSS animations</label><br>
+                    <input type="radio" name="question-5" value="To write synchronous code for asynchronous processes" id="q5a2"> <label for="q5a2">To write synchronous code for asynchronous processes</label><br>
+                    <input type="radio" name="question-5" value="To define event handlers" id="q5a3"> <label for="q5a3">To define event handlers</label><br>
+                    <input type="radio" name="question-5" value="To loop through arrays" id="q5a4"> <label for="q5a4">To loop through arrays</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>6. Which JavaScript method is used to add new elements to an array? </p>
+                    <input type="radio" name="question-6" value="add()" id="q6a1"> <label for="q6a1">add()</label><br>
+                    <input type="radio" name="question-6" value="push()" id="q6a2"> <label for="q6a2">push()</label><br>
+                    <input type="radio" name="question-6" value="concat()" id="q6a3"> <label for="q6a3">concat()</label><br>
+                    <input type="radio" name="question-6" value="join()" id="q6a4"> <label for="q6a4">join()</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>7. What does the Map object in JavaScript do?</p>
+                    <input type="radio" name="question-7" value="Creates a collection of key-value pairs" id="q7a1"> <label for="q7a1">Creates a collection of key-value pairs</label><br>
+                    <input type="radio" name="question-7" value="Filters array elements" id="q7a2"> <label for="q7a2">Filters array elements</label><br>
+                    <input type="radio" name="question-7" value="Creates a new array" id="q7a3"> <label for="q7a3">Creates a new array</label><br>
+                    <input type="radio" name="question-7" value="Merges two objects" id="q7a4"> <label for="q7a4">Merges two objects</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>8. What will type of null return in JavaScript? </p>
+                    <input type="radio" name="question-8" value="null" id="q8a1"> <label for="q8a1">null</label><br>
+                    <input type="radio" name="question-8" value="object" id="q8a2"> <label for="q8a2">object</label><br>
+                    <input type="radio" name="question-8" value="undefined" id="q8a3"> <label for="q8a3">undefined</label><br>
+                    <input type="radio" name="question-8" value="boolean" id="q8a4"> <label for="q8a4">boolean</label><br>
+                </div>
+
+
+                <div class="question">
+                    <p>9. What is the use of the bind() method? </p>
+                    <input type="radio" name="question-9" value="Binds one array to another" id="q9a1"> <label for="q9a1">Binds one array to another</label><br>
+                    <input type="radio" name="question-9" value="Binds a function to a specific object" id="q9a2"> <label for="q9a2">Binds a function to a specific object</label><br>
+                    <input type="radio" name="question-9" value="Merges two objects" id="q9a3"> <label for="q9a3">Merges two objects</label><br>
+                    <input type="radio" name="question-9" value="Triggers an event" id="q9a4"> <label for="q9a4">Triggers an event</label><br>
+                </div>
+    
+
+                <div class="question">
+                    <p>10. Which method is used to handle exceptions in JavaScript? </p>
+                    <input type="radio" name="question-10" value="try-catch" id="q10a1"> <label for="q10a1">try-catch</label><br>
+                    <input type="radio" name="question-10" value="onerror" id="q10a2"> <label for="q10a2">onerror</label><br>
+                    <input type="radio" name="question-10" value="catch-error" id="q10a3"> <label for="q10a3">catch-error</label><br>
+                    <input type="radio" name="question-10" value="finally-try" id="q10a4"> <label for="q10a4">finally-try</label><br>
+                </div>
+            
+    
+                <button type="button" onclick="submitAssessment()">Submit</button>
+            </form>
+
+            <div id="score-display" style="display: none;">
+                <h3>Your score is: <span id="score"></span>/10</h3>
+            </div>
+            <br>
+
+            
+            <button id="certificateBtn" class="disabled" onclick="showCertificateModal()" disabled>Claim Certificate</button>
+
+        </main>
+    </div>
+
+    <div id="certificateModal">
+        <div class="modal-content">
+            <h3>Congratulations!</h3>
+            <p>Here's your certificate:</p>
+            <img src="{{ url_for('static', filename='images/certificate.jpg') }}" alt="Certificate">
+            <br>
+            <a href="{{ url_for('static', filename='images/certificate.jpg') }}" download="certificate.png">
+                <button class="download-btn">Download Certificate</button>
+            </a>
+            <br><br>
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    </main>
+
+    <script>
+        // Correct answers for validation
+        const correctAnswers = {
+            1: "let is block-scoped, while var is function-scoped",
+            2: "JSON.stringify()",
+            3: "A function that has access to its parent scope, even after the parent function has closed",
+            4: "class MyClass {}",
+            5: "To write synchronous code for asynchronous processes",
+            6: "push()",
+            7: "Creates a collection of key-value pairs",
+            8: "object",
+            9: "Binds a function to a specific object",
+            10: "try-catch"
+        };
+
+        function submitAssessment() {
+            let score = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selectedAnswer = document.querySelector(`input[name="question-${i}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('score-display').style.display = 'block';
+
+            const certificateBtn = document.getElementById('certificateBtn');
+            if (score >= 4) {
+                certificateBtn.classList.remove('disabled');
+                certificateBtn.disabled = false;
+            } else {
+                alert('Your score is below 4. Please try again!');
+            }
+        }
+
+        function showCertificateModal() {
+            const score = parseInt(document.getElementById('score').textContent);
+
+            if (score >= 4) {
+                document.body.classList.add('blur-bg');
+                document.getElementById('certificateModal').style.display = 'flex';
+            } else {
+                alert('You need a score of 4 or higher to claim the certificate.');
+            }
+        }
+
+        function closeModal() {
+            document.body.classList.remove('blur-bg');
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+
+        // Ensure modal stays hidden and blur-bg is not applied on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.remove('blur-bg');
+            document.getElementById('certificateModal').style.display = 'none';
+        });
+
+    </script>
+    
+
+</body>
+</html>

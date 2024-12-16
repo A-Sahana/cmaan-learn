@@ -188,22 +188,7 @@
             </section>
 
 
-            <div id="certificateModal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal()">&times;</span>
-                    <h3>Congratulations! You've completed the course.</h3>
-                    <img src="{{ url_for('static', filename='images/fsc.jpg') }}" alt="Certificate" class="certificate-image">
-                    <br>
-                    <a href="{{ url_for('static', filename='images/fsc.jpg') }}" download>
-                        <button class="download-btn">Download Certificate</button>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Claim Certificate Button (Initially Locked) -->
-            <button id="certificateBtn" class="dropdown-btn" onclick="toggleCertificate()" disabled>Claim Certificate</button>
-        </main>
-    </div>
+           
 
     <script>
         function toggleSection(sectionId) {
@@ -211,23 +196,6 @@
             section.style.display = section.style.display === "none" ? "block" : "none";
         }
 
-        function toggleCertificate() {
-            var certificateModal = document.getElementById("certificateModal");
-            certificateModal.style.display = certificateModal.style.display === "none" ? "flex" : "none";
-        }
-
-
-        function closeModal() {
-            document.getElementById("certificateModal").style.display = "none";
-        }
-
-
-        function unlockCertificate() {
-            document.getElementById("certificateBtn").disabled = false;
-            document.getElementById("certificateBtn").style.backgroundColor = "#66aac0";
-        }
-
-        unlockCertificate();
     </script>
 
 
